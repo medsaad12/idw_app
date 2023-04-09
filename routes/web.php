@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return redirect('/profile');
+    } else {
+        return view('auth.login');
+    } 
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/profile', function () {
+    return view('profile');
+})->middleware('auth');
+
+Route::get('/chat/{id?}',[ChatController::class,'index'])->middleware('auth' ,'permission:chat');
+
+Route::post('/send',[ChatController::class,"send"])->middleware('auth' ,'permission:chat');
+
+
