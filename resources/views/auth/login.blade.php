@@ -38,7 +38,6 @@
           <img src="{{ asset('svgs/eye.svg') }}" class="toggle" onclick=toggle()>
         </div>
       </div>
-      <a style="text-decoration: none; color:#463ae7" href="/register">Créer un compte ?</a>
       <input type="submit" value="Login" class="form_submit"/>
     </form>
   </div> 
