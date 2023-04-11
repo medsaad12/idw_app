@@ -7,6 +7,9 @@
     <title>IDW</title>
     <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @vite('resources/js/app.js')
+
 
   </head>
   <body>
@@ -17,7 +20,7 @@
           <span>Profile</span>
         </a>
         @if (Auth::user()->hasRole(['ADMIN', 'RH' ,'CE' ,'AGENT']))
-          @role('ADMIN')
+        @role('ADMIN')
         <a href="{{ url('chat') }}" class="link">
           <img src="{{ asset('svgs/chat-left-dots-fill.svg') }}" class="icons">
           <span>Chat</span>
@@ -107,7 +110,7 @@
         </a>
         @endrole
         @else
-          @can('chat')
+        @can('chat')
         <a href="{{ url('chat') }}" class="link">
           <img src="{{ asset('svgs/chat-left-dots-fill.svg') }}" class="icons">
           <span>Chat</span>
@@ -227,10 +230,10 @@
         </a>
         @endcan
         @endif
-       
-        
 
-        
+
+
+
 
         <a onclick="logout()" class="link">
           <img width="30" height="38" src="{{ asset('svgs/logout.png') }}"

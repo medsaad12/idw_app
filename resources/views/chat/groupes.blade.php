@@ -1,4 +1,4 @@
 @extends('layouts.sidebar') 
 @section('content')
-  <span>GROUPPPPPPS</span>
+<h1>Groupes</h1>
 @endsection

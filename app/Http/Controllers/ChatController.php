@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Message;
+use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,7 @@ class ChatController extends Controller
         })
         ->orderBy('created_at', 'asc')
         ->get();
-        return view('chat.chat' , ['users' => $users , 'receiver' => $receiver ? $receiver : User::whereNotIn('id', [Auth::user()->id])->inRandomOrder()->first()  , "messages"=>$messages]);
+        return view('chat.chat' , ["currentUser" => Auth::user()->id ,'users' => $users , 'receiver' => $receiver ? $receiver : User::whereNotIn('id', [Auth::user()->id])->inRandomOrder()->first()  , "messages"=>$messages]);
     }
     public function send(Request $request)
     {
@@ -35,6 +36,8 @@ class ChatController extends Controller
         $message->sender_id = Auth::user()->id ;
         $message->receiver_id = $request->receiver ;
         $message->save() ;
+        broadcast(new MessageSent( json_decode(json_encode($message), true)));
         return back() ;
     }
+    
 }

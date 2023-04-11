@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
   <div class="profile_con">
-    <h1>Bienvenue dans votre espace {{Auth::user()->getRoleNames()[0]}}</h1>
+    <h1>Bienvenue dans IDW App </h1>
     <div class="profile">
       <div class="profile_img">
         <img src="{{ asset('svgs/Default_pfp.svg.png') }}">

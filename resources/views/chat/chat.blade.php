@@ -23,24 +23,17 @@
         <img  src="{{ asset('svgs/Default_pfp.svg.png') }}">
         <span style="font-weight: bold">{{strtoupper($receiver->name)}}</span>
       </div>
-      <div class="messages">
-        @forelse ($messages as $message)
-        @if ($message->sender_id == Auth::user()->id)
-        <span class="msg_sent"> {{$message->message}} </span>
-        @else
-        <span class="msg_rec"> {{$message->message}} </span>
-        @endif
-        @empty
-            <div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center">
-              <img height="300px" width="300px" src="{{asset('images/no-spam.png')}}" alt="">
-              No Messages Yet
-            </div>
-        @endforelse
+      <div class="messages"  id="{{Auth::user()->id}}">
+        <div id="no-msg" style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center">
+          <img height="300px" width="300px" src="{{asset('images/no-spam.png')}}" alt="">
+          No Messages Yet
+        </div>
       </div>
       <form class="msg_input" action="/send" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="message" class="message">
-        <input type="hidden" name="receiver" value="{{$receiver->id}}">
+        <input type="text" value="" name="message" id="message" class="message">
+        <input type="hidden" name="receiver" id="receiver" value="{{$receiver->id}}">
+        <input type="hidden" name="userId" id="userId" value="{{Auth::user()->id}}">
         <label for="file_input">
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
           <input type="file" name="document_path" id="file_input" class="hidden_inps">
@@ -134,8 +127,8 @@
       flex-direction: column;
       height: 100%;
       max-width: 100%;
-      overflow: scroll;
-      margin: 0px 5px 0px 5px;
+      overflow-y: scroll;
+      margin: 0px 5px 3px 5px;
     }
 
     .messages::-webkit-scrollbar{
@@ -178,4 +171,7 @@
       height: 100%;
     }
   </style>
+  <script>
+    var messages = @json($messages);
+  </script>
 @endsection
