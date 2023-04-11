@@ -14,7 +14,7 @@
       </a>
       <hr>
       @empty
-        No group Yet  
+        No Group Yet  
       @endforelse
     </div>
     <div class="convo">

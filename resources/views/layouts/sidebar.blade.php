@@ -115,6 +115,10 @@
           <img src="{{ asset('svgs/chat-left-dots-fill.svg') }}" class="icons">
           <span>Chat</span>
         </a>
+        <a href="{{ url('groupes') }}" class="link">
+          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
+          <span>Groupes</span>
+        </a>
         @endcan
 
         @can('G-utilisateurs')
@@ -122,13 +126,6 @@
           <img width="20" height="38" src="{{ asset('svgs/management.png') }}"
             class="icons">
           <span>Utilisateurs</span>
-        </a>
-        @endcan
-
-        @can('G-groupes')
-        <a href="{{ url('groupes') }}" class="link">
-          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
-          <span>Groupes</span>
         </a>
         @endcan
 
