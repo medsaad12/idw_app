@@ -4,7 +4,7 @@
 <div class="chat">
     <div class="people">
       @forelse ($groupes as $groupe)
-      <a style="text-decoration: none ; color:black ;" href="/groupes/{{$groupe->group_id}}">
+      <a style="text-decoration: none ; color:black ;" href="/groupes/{{$groupe->id}}">
         <div class="person">
           <img src="{{ asset('svgs/Default_pfp.svg.png') }}">
           <div class="person_content">
@@ -25,9 +25,9 @@
       <div class="messages">
         @forelse ($messages as $message)
         @if ($message->sender_id == Auth::user()->id)
-        <span class="msg_sent"> {{$message->message}} </span>
+        <span class="msg_sent"><p style="font-size: 11px ; color:rgb(230, 225, 225) ; margin:0">{{$message->sender_name}} : </p>{{$message->message}}</span>
         @else
-        <span class="msg_rec">{{$message->message}} </span>
+        <span class="msg_rec"><p style="font-size: 11px ; color:rgb(230, 225, 225) ; margin:0">{{$message->sender_name}} : </p>{{$message->message}} </span>
         @endif
         @empty
         <div id="no-msg" style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center">
@@ -39,8 +39,7 @@
       <form class="msg_input" action="/sendtogroup" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" class="message" name="message">
-        <input type="hidden" name="receivers_group" id="receiver" value="{{$group->group_id}}">
-        <input type="hidden" name="userId" id="userId" value="{{Auth::user()->id}}">
+        <input type="hidden" name="receivers_group" id="receiver" value="{{$group->id}}">
         <label for="file_input">
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
           <input type="file" id="file_input" class="hidden_inps">

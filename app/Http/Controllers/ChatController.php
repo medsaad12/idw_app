@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Message;
 use App\Events\MessageSent;
+use App\Models\GroupMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,4 +41,14 @@ class ChatController extends Controller
         return back() ;
     }
     
+    public function sendtogroup(Request $request)
+    {
+        $message = new GroupMessage ;
+        $message->message = $request->message ;
+        $message->sender_id = Auth::user()->id ;
+        $message->sender_name = Auth::user()->name ;
+        $message->group_id = $request->receivers_group ;
+        $message->save() ;
+        return back() ;
+    }
 }
