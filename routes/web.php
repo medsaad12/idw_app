@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,6 @@ Route::get('/chat/{id?}',[ChatController::class,'index'])->middleware('auth' ,'p
 
 Route::post('/send',[ChatController::class,"send"])->middleware('auth' ,'permission:chat');
 
+Route::post('/sendtogroup',[ChatController::class,"sendtogroup"])->middleware('auth' ,'permission:chat');
 
+Route::resource('/groupes',GroupController::class)->middleware('auth' ,'permission:chat');
