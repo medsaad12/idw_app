@@ -21,5 +21,9 @@ Broadcast::channel('chat.{receiver_id}', function ($user,$receiver_id) {
     return Auth::check();
 });
 
+Broadcast::channel('room.{roomId}', function ($user,$roomId) {
+    return Auth::check();
+});
 
+// Auth::user()->canAccessConversation($this->message->group_id)
 

@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Events\MessageSent;
 use App\Models\GroupMessage;
 use Illuminate\Http\Request;
+use App\Events\GroupMessageSent;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -49,6 +50,7 @@ class ChatController extends Controller
         $message->sender_name = Auth::user()->name ;
         $message->group_id = $request->receivers_group ;
         $message->save() ;
+        broadcast(new GroupMessageSent($message));
         return back() ;
     }
 }

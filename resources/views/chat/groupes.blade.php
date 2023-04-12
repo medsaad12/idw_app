@@ -1,5 +1,6 @@
 @extends('layouts.sidebar') 
 @section('content')
+@vite('resources/js/room.js')
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
 <div class="chat">
     <div class="people">
@@ -23,23 +24,16 @@
         <span style="font-weight: bold">{{strtoupper($group->group_name)}}</span>
       </div>
       <div class="messages">
-        @forelse ($messages as $message)
-        @if ($message->sender_id == Auth::user()->id)
-        <span class="msg_sent"><p style="font-size: 11px ; color:rgb(230, 225, 225) ; margin:0">{{$message->sender_name}} : </p>{{$message->message}}</span>
-        @else
-        <span class="msg_rec"><p style="font-size: 11px ; color:rgb(230, 225, 225) ; margin:0">{{$message->sender_name}} : </p>{{$message->message}} </span>
-        @endif
-        @empty
         <div id="no-msg" style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center">
           <img height="300px" width="300px" src="{{asset('images/no-spam.png')}}" alt="">
           No Messages Yet
         </div>
-        @endforelse
         </div>
       <form class="msg_input" action="/sendtogroup" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" class="message" name="message">
-        <input type="hidden" name="receivers_group" id="receiver" value="{{$group->id}}">
+        <input type="hidden" name="receivers_group" id="groupId" value="{{$group->id}}">
+        <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
         <label for="file_input">
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
           <input type="file" id="file_input" class="hidden_inps">
@@ -51,4 +45,7 @@
       </form>
     </div>
   </div>
+  <script>
+    var messages = @json($messages);
+  </script>
 @endsection

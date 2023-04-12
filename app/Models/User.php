@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Group;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,5 +47,15 @@ class User extends Authenticatable
     public function groups()
     {
         return $this->belongsToMany(Group::class);
+    }
+    public function canAccessConversation($id)
+    {
+        $requested_group =  Group::find($id);
+        $groupes = Auth::user()->groups;
+        if ($groupes->contains($requested_group) == 1 ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

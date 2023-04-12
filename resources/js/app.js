@@ -43,3 +43,10 @@ Echo.private('chat.'+userId)
             messagesDiv.appendChild(span);  });
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
 });
+
+var receiver = document.getElementById('receiver').value 
+
+Echo.private('room.'+receiver)
+    .listen('GroupMessageSent', function(data) {
+        console.log(data.message);
+    });

@@ -1,5 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
+@vite('resources/js/app.js')
+
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
   <div class="chat">
     <div class="people">

@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite('resources/js/app.js')
-
-
   </head>
   <body>
     <div class="sidebar">
