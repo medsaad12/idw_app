@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
@@ -14,8 +15,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $randomGroup = Group::inRandomOrder()->first();
-        $groupes = Group::all();
+        $randomGroup = Auth::user()->groups->first();
+        $groupes = Auth::user()->groups;
         $messages = $randomGroup->messages ;
         return view('chat.groupes',['groupes' => $groupes , 'group' => $randomGroup , "messages"=>$messages]);
     }
@@ -49,10 +50,15 @@ class GroupController extends Controller
      */
     public function show( Request $request , Group $group)
     {
-        $currentGroup = Group::find($request->segment(2));
-        $groupes = Group::all();
-        $messages = $currentGroup->messages ;
-        return view('chat.groupes',['groupes' => $groupes , 'group' => $currentGroup , "messages"=>$messages]);
+        $requested_group =  Group::find($request->segment(2));
+        $groupes = Auth::user()->groups;
+        if ($groupes->contains($requested_group) == 1 ) {
+            $currentGroup = $requested_group;
+            $messages = $currentGroup->messages;
+            return view('chat.groupes',['groupes' => $groupes , 'group' => $currentGroup , "messages"=>$messages]);
+        } else {
+            return abort(403,"YOU CAN'T ACCES THIS PAGE");
+        }
     }
 
     /**
