@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class GroupController extends Controller
 {
@@ -15,10 +18,14 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $randomGroup = Auth::user()->groups->first();
-        $groupes = Auth::user()->groups;
-        $messages = $randomGroup->messages ;
-        return view('chat.groupes',['groupes' => $groupes , 'group' => $randomGroup , "messages"=>$messages]);
+        if (count(Auth::user()->groups)>0) {
+            $randomGroup = Auth::user()->groups->first();
+            $groupes = Auth::user()->groups;
+            $messages = $randomGroup->messages ;
+            return view('chat.groupes',['groupes' => $groupes , 'group' => $randomGroup , "messages"=>$messages]);
+        } else {
+            return redirect('/groupes/create');
+        }  
     }
 
     /**
@@ -28,7 +35,8 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('chat.create-groupe',['users' => $users]);
     }
 
     /**
@@ -39,7 +47,30 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'group_name' => 'required',
+        ]);
+     
+        if ($validator->fails())
+        {
+            return back()->with('err', "quelque chose est incorrect ressayez !");
+        }
+     
+        $groupe = new Group ;
+        $groupe->group_name = $request->group_name ;
+        $groupe->save();
+        $ids = $request->members ;
+        DB::table('group_user')->insert(
+            ['group_id' => $groupe->id , 'user_id' => Auth::user()->id]
+        );
+        foreach ($ids as $id) {
+            $member = User::find($id);
+            DB::table('group_user')->insert(
+                ['group_id' => $groupe->id , 'user_id' => $member->id]
+            );
+          }
+
+        return redirect('/groupes');
     }
 
     /**

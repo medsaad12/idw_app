@@ -9,6 +9,7 @@ use App\Models\GroupMessage;
 use Illuminate\Http\Request;
 use App\Events\GroupMessageSent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ChatController extends Controller
 {
@@ -33,6 +34,7 @@ class ChatController extends Controller
     }
     public function send(Request $request)
     {
+        
         $message = new Message ;
         $message->message = $request->message ;
         $message->sender_id = Auth::user()->id ;
@@ -44,6 +46,7 @@ class ChatController extends Controller
     
     public function sendtogroup(Request $request)
     {
+        
         $message = new GroupMessage ;
         $message->message = $request->message ;
         $message->sender_id = Auth::user()->id ;

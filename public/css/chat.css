@@ -122,4 +122,18 @@
       width: 82%;
       height: 100%;
     }
- 
+ .G-groupes{
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #0e00d8b4;
+  color:white;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: sans-serif;
+ }
+ .G-groupes:hover{
+  border-radius: 5px;
+
+ }

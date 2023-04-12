@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
 <div class="chat">
     <div class="people">
+      @can('G-groupes')
+          <div style="display:flex;justify-content:center"><a href="/groupes/create"><button class="G-groupes">Créer un groupe</button></a></div>
+          <hr>
+      @endcan
       @forelse ($groupes as $groupe)
       <a style="text-decoration: none ; color:black ;" href="/groupes/{{$groupe->id}}">
         <div class="person">
@@ -13,7 +17,6 @@
           </div>
         </div>
       </a>
-      <hr>
       @empty
         No Group Yet  
       @endforelse

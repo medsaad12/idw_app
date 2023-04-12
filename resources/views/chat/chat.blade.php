@@ -41,6 +41,11 @@
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
           <input type="file" name="document_path" id="file_input" class="hidden_inps">
         </label>
+        @if (session('err'))
+                  <div class="alert alert-danger text-center">
+                    {{strtoupper(session('err'))}}
+                   </div>
+              @endif
         <label for="form_submit">
           <img src="{{ asset('svgs/send.svg') }}"  class="submit">
           <input type="submit" id="form_submit"  class="hidden_inps">
