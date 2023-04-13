@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 @vite('resources/js/app.js')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
   <div class="chat">
     <div class="people">
@@ -32,20 +32,20 @@
           No Messages Yet
         </div>
       </div>
+      @if (session('err'))
+                  <div class="alert alert-danger text-center">
+                    {{strtoupper(session('err'))}}
+                   </div>
+      @endif
       <form class="msg_input" action="/send" method="POST" enctype="multipart/form-data">
-        @csrf
+        @csrf 
         <input type="text" value="" name="message" id="message" class="message">
         <input type="hidden" name="receiver" id="receiver" value="{{$receiver->id}}">
         <input type="hidden" name="userId" id="userId" value="{{Auth::user()->id}}">
         <label for="file_input">
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
-          <input type="file" name="document_path" id="file_input" class="hidden_inps">
+          <input type="file" name="file" id="file_input" class="hidden_inps">
         </label>
-        @if (session('err'))
-                  <div class="alert alert-danger text-center">
-                    {{strtoupper(session('err'))}}
-                   </div>
-              @endif
         <label for="form_submit">
           <img src="{{ asset('svgs/send.svg') }}"  class="submit">
           <input type="submit" id="form_submit"  class="hidden_inps">

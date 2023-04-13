@@ -1,11 +1,12 @@
 @extends('layouts.sidebar') 
 @section('content')
 @vite('resources/js/room.js')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
 <div class="chat">
     <div class="people">
       @can('G-groupes')
-          <div style="display:flex;justify-content:center"><a href="/groupes/create"><button class="G-groupes">Créer un groupe</button></a></div>
+          <div style=" margin:left:0px ;display:flex;justify-content:center"><a href="/groupes/create"><button class="G-groupes">Créer un groupe</button></a></div>
           <hr>
       @endcan
       @forelse ($groupes as $groupe)
@@ -32,6 +33,11 @@
           No Messages Yet
         </div>
         </div>
+      @if (session('err'))
+                  <div class="alert alert-danger text-center">
+                    {{strtoupper(session('err'))}}
+                   </div>
+      @endif
       <form class="msg_input" action="/sendtogroup" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" class="message" name="message">
@@ -39,7 +45,7 @@
         <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
         <label for="file_input">
           <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
-          <input type="file" id="file_input" class="hidden_inps">
+          <input type="file" name="file" id="file_input" class="hidden_inps">
         </label>
         <label for="form_submit">
           <img src="{{ asset('svgs/send.svg') }}" class="submit">

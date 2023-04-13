@@ -9,6 +9,9 @@ function getData(){
         const img = document.getElementById('no-msg').style.display = "none"
     }
     messages.forEach(message => {
+        if (message.message == null) {
+            
+        }else{
             const span = document.createElement('span');
             span.textContent = message.message;
             if (message.receiver_id == id ) {
@@ -16,7 +19,10 @@ function getData(){
             } else {
                 span.classList.add('msg_rec');
             }
-            messagesDiv.appendChild(span);  });
+            messagesDiv.appendChild(span);  
+        }
+            
+        });
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
@@ -33,14 +39,19 @@ Echo.private('chat.'+userId)
        const messagesDiv = document.getElementsByClassName('messages')[0];
         messagesDiv.innerHTML = ''
         messages.forEach(message => {
-            const span = document.createElement('span');
-            span.textContent = message.message;
-            if (message.receiver_id == id ) {
-                span.classList.add('msg_sent');
-            } else {
-                span.classList.add('msg_rec');
+            if (message.message == null) {
+            
+            }else{
+                const span = document.createElement('span');
+                span.textContent = message.message;
+                if (message.receiver_id == id ) {
+                    span.classList.add('msg_sent');
+                } else {
+                    span.classList.add('msg_rec');
+                }
+                messagesDiv.appendChild(span);  
             }
-            messagesDiv.appendChild(span);  });
+         });
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
 });
 
