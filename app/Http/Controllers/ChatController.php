@@ -43,6 +43,11 @@ class ChatController extends Controller
         broadcast(new MessageSent( json_decode(json_encode($message), true)));
         return back() ;
     }
+
+    public function file()
+    {
+        return response()->download(public_path('images/pdf.pdf'));
+    }
     
     public function sendtogroup(Request $request)
     {
