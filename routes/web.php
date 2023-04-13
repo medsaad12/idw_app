@@ -33,6 +33,4 @@ Route::post('/send',[ChatController::class,"send"])->middleware('auth' ,'permiss
 
 Route::post('/sendtogroup',[ChatController::class,"sendtogroup"])->middleware('auth' ,'permission:chat');
 
-Route::get('/file',[ChatController::class,"file"]);
-
 Route::resource('/groupes',GroupController::class)->middleware('auth' ,'permission:chat');

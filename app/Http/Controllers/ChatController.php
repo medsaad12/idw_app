@@ -44,10 +44,6 @@ class ChatController extends Controller
         return back() ;
     }
 
-    public function file()
-    {
-        return response()->download(public_path('images/pdf.pdf'));
-    }
     
     public function sendtogroup(Request $request)
     {
