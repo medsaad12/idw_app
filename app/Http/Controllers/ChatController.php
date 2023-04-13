@@ -44,8 +44,13 @@ class ChatController extends Controller
             $message = new Message ;
             $message->sender_id = Auth::user()->id ;
             $message->receiver_id = $request->receiver ;
-            $message->document_path = "yes";
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('documents'), $filename);
+            $path = $filename;
+            $message->document_path = $path ;  
             $message->save() ;
+            broadcast(new MessageSent($message));
             return back() ;
         }elseif($request->missing('file') && $request->has('message')){
             $message = new Message ;
@@ -60,7 +65,11 @@ class ChatController extends Controller
             $message->message = $request->message ;
             $message->sender_id = Auth::user()->id ;
             $message->receiver_id = $request->receiver ;
-            $message->document_path = "yes";
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('documents'), $filename);
+            $path = $filename;
+            $message->document_path = $path ;  
             $message->save() ;
             broadcast(new MessageSent($message));
             return back() ;
@@ -78,8 +87,14 @@ class ChatController extends Controller
             $message->sender_id = Auth::user()->id ;
             $message->sender_name = Auth::user()->name ;
             $message->group_id = $request->receivers_group ;
-            $message->document_path = "yes";
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('documents'), $filename);
+            $path = $filename;
+            $message->document_path = $path ;  
             $message->save() ;
+            broadcast(new GroupMessageSent($message));
+
             return back() ;
         }elseif($request->missing('file') && $request->has('message')){
             $message = new GroupMessage ;
@@ -96,13 +111,24 @@ class ChatController extends Controller
             $message->sender_id = Auth::user()->id ;
             $message->sender_name = Auth::user()->name ;
             $message->group_id = $request->receivers_group ;
-            $message->document_path = "yes";
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('documents'), $filename);
+            $path = $filename;
+            $message->document_path = $path ;  
             $message->save() ;
             broadcast(new GroupMessageSent($message));
             return back() ;
         }else{
             return back()->with('err' ,  "quelque chose est incorrecte reessayer !!") ;
         }
+        
+    }
+    public function download(Request $request)
+    {
+        $id = $request->segment(2);
+        $message =  Message::find($id) ? Message::find($id): GroupMessage::find($id);
+        return response()->download(public_path('documents/'.$message->document_path));
         
     }
 }

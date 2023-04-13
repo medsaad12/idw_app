@@ -34,3 +34,5 @@ Route::post('/send',[ChatController::class,"send"])->middleware('auth' ,'permiss
 Route::post('/sendtogroup',[ChatController::class,"sendtogroup"])->middleware('auth' ,'permission:chat');
 
 Route::resource('/groupes',GroupController::class)->middleware('auth' ,'permission:chat');
+
+Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth' ,'permission:chat');
