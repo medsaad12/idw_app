@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <section class="ftco-section">
     <div class="container">
-    
+
     <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
     <div class="contact-wrap w-100 p-md-5 p-4">
     <h3 class="mb-4">Créer un groupe</h3>

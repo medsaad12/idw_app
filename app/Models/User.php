@@ -58,4 +58,12 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function havePermission($perm)
+    {
+        return $this->getPermissionNames()->contains($perm) ? true : false ;
+    }
+    public function haveRole($role)
+    {
+        return $this->getRoleNames()->contains($role) ? true : false ;
+    }
 }

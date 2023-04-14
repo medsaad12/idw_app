@@ -129,6 +129,5 @@ class ChatController extends Controller
         $id = $request->segment(2);
         $message =  Message::find($id) ? Message::find($id): GroupMessage::find($id);
         return response()->download(public_path('documents/'.$message->document_path));
-        
     }
 }

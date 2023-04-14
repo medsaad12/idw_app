@@ -224,11 +224,6 @@
         </a>
         @endcan
         @endif
-
-
-
-
-
         <a onclick="logout()" class="link">
           <img width="30" height="38" src="{{ asset('svgs/logout.png') }}"
             class="icons">
