@@ -21,17 +21,18 @@ class PermissionSeeder extends Seeder
             ['name'=>'G-groupes'],
             ['name'=>'G-conversations'],
             ['name'=>'G-formulaires'],
-            ['name'=>'creation-de-fromulaire'],
+            ['name'=>'remplissage-fromulaire'],
             ['name'=>'G-présence'],
             ["name"=>"G-entretiens"],
             ["name"=>"G-formations"],
             ["name"=>"Calcule-salaire"],
-            ["name"=>"Calcule-assiduité "],
+            ["name"=>"Calcule-assiduité"],
             ["name"=>"Calcule-prime"],
             ["name"=>"statistique-agent"],
             ["name"=>"G-codes"],
             ["name"=>"Tableau-agents"],
             ["name"=>"Tableau-RDV"],
+            ["name"=>"G-notifications"],
         ];
 
         for ($i=0; $i < count($permissions); $i++) { 

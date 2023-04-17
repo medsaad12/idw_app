@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 
 /*
@@ -47,4 +49,20 @@ Route::post('/sendtogroup',[ChatController::class,"sendtogroup"])->middleware('a
 
 Route::resource('/groupes',GroupController::class)->middleware('auth' ,'permission:chat');
 
+<<<<<<< HEAD
 Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth' ,'permission:chat');
+=======
+Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth' ,'permission:chat');
+
+Route::resource('/users',UserController::class)->middleware('auth' ,'permission:G-utilisateurs');
+
+Route::post('/forms/submit',[FormController::class , "submit"]);
+
+Route::resource('/forms',FormController::class);
+
+
+
+
+
+
+>>>>>>> fefb318bca059b979d9413dff4fda5e264e9d9e3

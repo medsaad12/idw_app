@@ -35,7 +35,11 @@
             class="icons">
           <span>Utilisateurs</span>
         </a>
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
+          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <span>New formulaires</span>
+        </a>
+        <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Formulaires</span>
         </a>
@@ -49,7 +53,7 @@
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Creer-Formulaire</span>
         </a>
@@ -126,16 +130,16 @@
         @endcan
 
         @can('G-formulaires')
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Formulaires</span>
+          <span>New formulaires</span>
         </a>
         @endcan
 
-        @can('creation-de-fromulaire')
-        <a href="{{ url('formulaires') }}" class="link">
+        @can('remplissage-fromulaire')
+        <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Creer-Formulaire</span>
+          <span>Formulaires</span>
         </a>
         @endcan
 
@@ -216,11 +220,6 @@
         </a>
         @endcan
         @endif
-
-
-
-
-
         <a onclick="logout()" class="link">
           <img width="30" height="38" src="{{ asset('svgs/logout.png') }}"
             class="icons">
