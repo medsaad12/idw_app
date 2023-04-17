@@ -1,0 +1,84 @@
+.clear{
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .create{
+    padding: 10px;
+    margin-top: 100px;
+    background-color: transparent;
+    border: 1px solid #564affb4;
+    color: #564affb4;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+    width: 150px;
+  }
+
+  .create:hover{
+    background-color: #564affb4;
+    color: white;
+  }
+
+  input[type = 'text'], input[type = 'email']{
+    width: 45%;
+    font-size: medium;
+    padding: 10px;
+    background-color: white;
+    border: 0.5px solid black;
+    border-radius: 5px;
+  }
+
+  .roles, .perms{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .permissions{
+    padding: 5px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    max-height: 100px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .perms::-webkit-scrollbar{
+    width: 10px;
+  } */
+
+  .form_one, .form_two, .form_three{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 20%;
+  }
+
+  .form_three{
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+
+  .create_user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+  }
+
+  .inps{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+  }

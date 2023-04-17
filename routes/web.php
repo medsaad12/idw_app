@@ -27,6 +27,18 @@ Route::get('/profile', function () {
     return view('profile');
 })->middleware('auth');
 
+Route::get('/users', function () {
+    return view('chat/users');
+})->middleware('auth');
+
+Route::get('/create', function () {
+    return view('chat/create_user');
+})->middleware('auth');
+
+Route::get('/formulaires', function () {
+    return view('chat/formulaires');
+})->middleware('auth');
+
 Route::get('/chat/{id?}',[ChatController::class,'index'])->middleware('auth' ,'permission:chat');
 
 Route::post('/send',[ChatController::class,"send"])->middleware('auth' ,'permission:chat');
