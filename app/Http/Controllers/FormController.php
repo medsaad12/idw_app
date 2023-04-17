@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Form;
 use App\Models\FormField;
 use Illuminate\Http\Request;
+use App\Models\FormSubmission;
 
 class FormController extends Controller
 {
@@ -105,6 +106,11 @@ class FormController extends Controller
 
     public function submit(Request $request)
     {
-      return $request->all();
+      $formSubmmission = new FormSubmission ;
+      $formSubmmission->form_id = $request->formId ;
+      $formSubmmission->data = $request->except(['formId',"_token"]);
+      $formSubmmission->save() ;
+    //   return back();
     }
 }
+ 
