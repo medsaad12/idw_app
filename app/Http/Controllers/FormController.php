@@ -48,7 +48,7 @@ class FormController extends Controller
                 $form_field->form_id = $form->id;
                 $form_field->label = $data_field->question_name ;
                 $form_field->type = $data_field->question_type ;
-                if (count($data_field->options)) {
+                if ($data_field->question_type !== "text" && $data_field->question_type !== "numbre") {
                     $form_field->options = json_encode($data_field->options );
                 }
                 $form_field->save();
