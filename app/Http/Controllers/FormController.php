@@ -15,7 +15,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        return view('forms.liste',['forms'=>Form::all()]);
     }
 
     /**
@@ -48,9 +48,13 @@ class FormController extends Controller
                 $form_field->form_id = $form->id;
                 $form_field->label = $data_field->question_name ;
                 $form_field->type = $data_field->question_type ;
+                if (count($data_field->options)) {
+                    $form_field->options = json_encode($data_field->options );
+                }
                 $form_field->save();
             }
         }
+        return back();
     }
 
     /**
@@ -97,5 +101,10 @@ class FormController extends Controller
     public function destroy(Form $form)
     {
         //
+    }
+
+    public function submit()
+    {
+     
     }
 }

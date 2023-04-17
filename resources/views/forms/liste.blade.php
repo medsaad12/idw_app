@@ -4,17 +4,12 @@
   <link rel="stylesheet" href="{{ asset('css/create-form.css') }}">
   <script src="{{ asset('js/create-form.js') }}"></script>
   <div>
-    <h1>{{$form->name}}</h1>
-    <form action="forms/submit" method="POST">
-    @csrf
-    @forelse ($fields as $field)
-    <label for="{{$field->label}}">{{$field->label}}</label>
-    <input type="text" name="{{$field->label}}"> <br>
+    <h1>Liste Des formulaires</h1>
+    @forelse ($forms as $form)
+    <a href="/forms/{{$form->id}}">{{$form->name}}</a>
     @empty
         No form yet
     @endforelse
-    <input type="submit">
-    </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 @endsection

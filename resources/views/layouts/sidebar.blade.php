@@ -33,6 +33,10 @@
         </a>
         <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <span>New formulaires</span>
+        </a>
+        <a href="/forms" class="link">
+          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Formulaires</span>
         </a>
         @endrole
@@ -136,14 +140,14 @@
         @can('G-formulaires')
         <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Formulaires</span>
+          <span>New formulaires</span>
         </a>
         @endcan
 
-        @can('creation-de-fromulaire')
-        <a href="/forms/create" class="link">
+        @can('remplissage-fromulaire')
+        <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Creer-Formulaire</span>
+          <span>Formulaires</span>
         </a>
         @endcan
 

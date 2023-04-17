@@ -41,6 +41,8 @@ Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth
 
 Route::resource('/users',UserController::class)->middleware('auth' ,'permission:G-utilisateurs');
 
+Route::post('/forms/submit',[FormController::class , "submit"]);
+
 Route::resource('/forms',FormController::class);
 
 
