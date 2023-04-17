@@ -103,8 +103,8 @@ class FormController extends Controller
         //
     }
 
-    public function submit()
+    public function submit(Request $request)
     {
-     
+      return $request->all();
     }
 }

@@ -5,7 +5,7 @@
   <script src="{{ asset('js/create-form.js') }}"></script>
   <div>
     <h1>{{$form->name}}</h1>
-    <form action="forms/submit" method="POST">
+    <form action="/forms/submit" method="POST">
     @csrf
     @forelse ($fields as $field)
     <label for="{{$field->label}}">{{$field->label}}</label>
