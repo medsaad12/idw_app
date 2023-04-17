@@ -31,7 +31,7 @@
             class="icons">
           <span>Utilisateurs</span>
         </a>
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Formulaires</span>
         </a>
@@ -45,7 +45,7 @@
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Creer-Formulaire</span>
         </a>
@@ -134,14 +134,14 @@
         @endcan
 
         @can('G-formulaires')
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Formulaires</span>
         </a>
         @endcan
 
         @can('creation-de-fromulaire')
-        <a href="{{ url('formulaires') }}" class="link">
+        <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Creer-Formulaire</span>
         </a>

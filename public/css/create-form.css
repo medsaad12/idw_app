@@ -1,0 +1,94 @@
+.create_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .champ{
+    margin-top: 10px;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid;
+  }
+  
+  .head{  
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
+  .form_config{
+    margin-top: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .question, .form_name{
+    border: 0;
+    border-bottom: 1px solid;
+    width: 400px;
+    outline: none;
+    padding: 10px;
+    font-size: medium;
+  }
+  
+  .add_opt{
+    border: 0;
+    background-color: #0e00d8b4;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  .add_qst{
+    border: 0;
+    background-color: #0e00d8b4;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .radio_check{
+    margin-top: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .options{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .option{
+    padding: 5px ;
+  }
+  
+  .option_label{
+    margin-top: 5px;
+    border: 0;
+    border-bottom: 1px solid;
+    outline: none;
+  }
+  
+  .del_qst{
+    margin-left: auto;
+  }
+  
+  .form_head{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px 0px 10px 0px;
+  }

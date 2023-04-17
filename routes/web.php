@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 
@@ -39,4 +40,11 @@ Route::resource('/groupes',GroupController::class)->middleware('auth' ,'permissi
 Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth' ,'permission:chat');
 
 Route::resource('/users',UserController::class)->middleware('auth' ,'permission:G-utilisateurs');
+
+Route::resource('/forms',FormController::class);
+
+
+
+
+
 
