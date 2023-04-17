@@ -81,33 +81,21 @@
           <img src="{{ asset('svgs/chat-left-dots-fill.svg') }}" class="icons">
           <span>Chat</span>
         </a>
-        <a href="{{ url('groupes') }}" class="link">
-          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
-          <span>Groupes</span>
-        </a>
         <a href="{{ url('listeDeFormations') }}" class="link">
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
-          <span>Liste De Formations</span>
+          <span>Formations</span>
         </a>
         <a href="{{ url('StatistiqueDesAgent') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Statistique des agent </span>
+          <span>Agents</span>
         </a>
-        <a href="{{ url('tableauDePresence') }}" class="link">
+        {{-- <a href="{{ url('tableauDePresence') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
-        </a>
+        </a> --}}
         <a href="{{ url('tableauDesEntretiens') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Gestion des entretiens</span>
-        </a>
-        <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Calculatrice</span>
-        </a>
-        <a href="{{ url('rdv') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Notification</span>
+          <span>Entretiens</span>
         </a>
         @endrole
         @else

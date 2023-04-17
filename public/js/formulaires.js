@@ -1,5 +1,6 @@
 let option_num = 1
 let qst_num = 1
+const csrf = document.getElementsByName('csrf-token')[0].content
 
 function submit(){
   let form = {}
@@ -29,6 +30,16 @@ function submit(){
   form.form_name = form_name
   form.questions = qsts
   console.log(JSON.stringify(form))
+  console.log(csrf)
+  const formData = new FormData()
+  formData.append('form', JSON.stringify(form))
+  fetch('/form_create',{
+    method: 'POST',
+    body: formData,
+    headers: {
+      'X-CSRF-TOKEN': csrf
+    }
+  }).then(console.log('ok'))
 }
 
 function del_qst(that){
