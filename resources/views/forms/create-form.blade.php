@@ -9,9 +9,20 @@
       @csrf
       <input type="text" class="form_name" placeholder="Nom du formulaire:">
       <input type="button" class="add_qst" value="Ajouter question" onclick=add_question()>
-      <input type="button" class="add_qst" value="Envoyer" onclick=submitForm()>
+      <input type="button" class="add_qst" value="Créer" onclick=submitForm()>
       <input type="hidden" id="data" name="data" value="">
     </form>
+    @if (session('err'))
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">quelque chose est incorrect ressayez !
+      </h4>
+    </div>
+    @endif
+    @if (session('succes'))
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Formulaire créé avec succès</h4>
+    </div>
+    @endif
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 @endsection
