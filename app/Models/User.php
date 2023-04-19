@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Group;
+use App\Models\Presence;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
@@ -48,6 +49,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Group::class);
     }
+
+    public function presence()
+    {
+        return $this->belongsToMany(Presence::class);
+    }
+
     public function canAccessConversation($id)
     {
         $requested_group =  Group::find($id);

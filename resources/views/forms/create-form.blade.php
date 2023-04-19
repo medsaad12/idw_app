@@ -14,7 +14,7 @@
     </form>
     @if (session('err'))
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading">quelque chose ne va pas réessayer
+      <h4 class="alert-heading">quelque chose est incorrect ressayez !
       </h4>
     </div>
     @endif

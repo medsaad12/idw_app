@@ -6,13 +6,13 @@
   <h1>{{$form->name}}</h1>
   @if (session('err'))
   <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">quelque chose ne va pas réessayer
+    <h4 class="alert-heading">quelque chose est incorrect ressayez !
     </h4>
   </div>
   @endif
   @if (session('succes'))
   <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Formulaire créé avec succès</h4>
+    <h4 class="alert-heading">Formulaire envoyee avec succès</h4>
   </div>
   @endif
   <form class="formulaire" action="/forms/submit" method="POST">

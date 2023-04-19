@@ -97,7 +97,7 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Statistique des agent </span>
         </a>
-        <a href="{{ url('tableauDePresence') }}" class="link">
+        <a href="/presence" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
@@ -160,7 +160,7 @@
         @endcan
 
         @can('G-présence')
-        <a href="{{ url('tableauDePresence') }}" class="link">
+        <a href="/presence" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
