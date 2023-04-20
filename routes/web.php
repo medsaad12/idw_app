@@ -7,6 +7,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PresenceController;
+use App\Http\Controllers\EntretienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,12 @@ Route::resource('/forms',FormController::class);
 Route::get('/presence/user/{name}',[PresenceController::class , "presence_user" ]);
 
 Route::resource('/presence',PresenceController::class)->middleware('auth','permission:G-présence');
+
+
+Route::get('/entretiens/search',[EntretienController::class,"search"])->middleware('auth','permission:G-entretiens');
+
+Route::resource('/entretiens',EntretienController::class)->middleware('auth','permission:G-entretiens');
+
 
 
 

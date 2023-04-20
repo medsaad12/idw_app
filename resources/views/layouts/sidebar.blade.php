@@ -101,7 +101,7 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
-        <a href="{{ url('tableauDesEntretiens') }}" class="link">
+        <a href="/entretiens" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
@@ -167,7 +167,7 @@
         @endcan
 
         @can('G-entretiens')
-        <a href="{{ url('tableauDesEntretiens') }}" class="link">
+        <a href="/entretiens" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
