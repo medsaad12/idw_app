@@ -11,10 +11,10 @@
       </div>
       <div class="formulaire">
         @foreach ($submissions as $sub)
-          <p>Formulaire remplis par l'agent : {{App\Models\User::find($sub->agent_id)->name}}</p>
+          <p>Formulaire remplis par l'agent : <b>{{App\Models\User::find($sub->agent_id)->name}}</b></p>
           @foreach (json_decode($sub->data) as $rep)
           <div class="question">
-            <h3 class="question_label">-->{{$rep->label}}</h3>
+            <h3 class="question_label">{{$rep->label}}</h3>
             <span>{{$rep->reponse}}</span>
           </div>
           @endforeach

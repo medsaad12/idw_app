@@ -25,7 +25,6 @@
                 @endif
             </ul>
         </div>
-        <li class="active"><span>{{ $paginator->currentPage() }} / {{ $paginator->lastPage() }}</span></li>
 
         <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
             <div>
