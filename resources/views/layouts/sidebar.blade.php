@@ -89,9 +89,9 @@
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
-        <a href="{{ url('listeDeFormations') }}" class="link">
+        <a href="/formations" class="link">
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
-          <span>Liste De Formations</span>
+          <span>Gestion de formations</span>
         </a>
         <a href="{{ url('StatistiqueDesAgent') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
@@ -174,9 +174,9 @@
         @endcan
 
         @can('G-formations')
-        <a href="{{ url('listeDeFormations') }}" class="link">
+        <a href="/formations" class="link">
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
-          <span>Liste De Formations</span>
+          <span>Gestion de formations</span>
         </a>
         @endcan
 
