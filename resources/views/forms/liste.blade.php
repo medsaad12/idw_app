@@ -4,16 +4,15 @@
   <link rel="stylesheet" href="{{ asset('css/liste_form.css') }}">
   <div class="form_list">
     <h1>Liste Des formulaires</h1>
-    @forelse ($forms as $form)
     <div class="forms">
-      <a href="/forms/{{$form->id}}" class="form">
-        <h4>{{$form->name}}</h4>
-        <small>{{$form->created_at}}</small>
-      </a>
+      @forelse ($forms as $form)
+        <a href="/forms/{{$form->id}}" class="form">
+          <h4>{{$form->name}}</h4>
+          <small>{{$form->created_at}}</small>
+        </a>
+      @empty
+          No form yet
+      @endforelse
     </div>
-    @empty
-        No form yet
-    @endforelse
-    
   </div>
 @endsection

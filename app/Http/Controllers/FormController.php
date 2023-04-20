@@ -15,7 +15,7 @@ class FormController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission:G-formulaires')->only(['create', 'store', 'edit', 'update', 'delete']);
-        $this->middleware('permission:remplissage-fromulaire')->only(['index','show']);
+        // $this->middleware('permission:remplissage-fromulaire')->only(['index','show']);
     }
     /**
      * Display a listing of the resource.
@@ -146,11 +146,14 @@ class FormController extends Controller
     public function submissions(Request $request)
     {
         $id = $request->segment(3);
-        $form_submission = FormSubmission::find($id);
-        $form = Form::find($form_submission->form_id);
-        $allData = json_decode($form_submission->data) ;
-        $agent =  User::find($form_submission->agent_id);
-        return view('forms.form-remplis',['agent'=>$agent,'allData'=>$allData , 'form'=>$form ]);
+        $form = Form::find($id);
+        $subs = FormSubmission::where('form_id','=',$form->id)->paginate(1);
+        return view('forms.form-remplis',['submissions'=> $subs, 'form'=>$form]);
+        // $form_submission = FormSubmission::find($id);
+        // $form = Form::find($form_submission->form_id);
+        // $allData = json_decode($form_submission->data);
+        // $agent =  User::find($form_submission->agent_id);
+        // return view('forms.form-remplis',['agent'=>$agent,'allData'=>$allData , 'form'=>$form ]);
     }
 }
  
