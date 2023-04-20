@@ -13,6 +13,8 @@
             <th>Telephone</th>
             <th>Etat</th>
             <th>Objectif</th>
+            <th>Date d'entré</th>
+            <th>Date de sortie</th>
             <th></th>
             <th></th>
           </tr>
@@ -26,6 +28,8 @@
             <td> @if ($formation->objectifs !== null )
               {{$formation->objectifs > 1 ? $formation->objectifs." Objectifs" :  $formation->objectifs." Objectif" }}
             @endif</td>
+            <td>{{$formation->date_entre}}</td>
+            <td>{{$formation->date_sortie}}</td>
             <td><a href="/formations/{{$formation->id}}/edit"><input type="button" class="mod crud_btn" value="Modifier"></a></td>
             <td><form method="post" action="/formations/{{$formation->id}}">@csrf @method('delete')<input type="submit" class="del crud_btn" value="Supprimer"></form></td>
             </tr>

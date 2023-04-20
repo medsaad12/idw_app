@@ -48,6 +48,8 @@ class FormationController extends Controller
         $formation = new Formation ;
         $formation->nom = $request->nom ;
         $formation->telephone = $request->telephone ;
+        $formation->date_entre = $request->date_entre ;
+        $formation->date_sortie = $request->date_sortie ;
         $formation->save();
         return redirect('/formations')->with('success', "Formation Créé avec succès");
     }
@@ -96,6 +98,8 @@ class FormationController extends Controller
         $formation->telephone = $request->telephone ;
         $formation->objectifs = $request->objectifs ;
         $formation->status = $request->etat ;
+        $formation->date_entre = $request->date_entre ;
+        $formation->date_sortie = $request->date_sortie ;
         $formation->save();
         return redirect('/formations')->with('success', "Formation Créé avec succès");
     }

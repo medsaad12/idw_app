@@ -12,6 +12,16 @@
         <input type="text" placeholder="Nom" name="nom">
         <input type="text" placeholder="Numero de telephone" name="telephone">
       </div>
+      <div class="form_two">
+       <div style="width: 100% ; display:flex ; flex-direction:column ;align-items:center; justify-content:center">
+        <label for="">Date d'entré</label><br>
+        <input type="date" placeholder="Date d'entré" name="date_entre">
+       </div>
+        <div style="width: 100% ; display:flex ; flex-direction:column ;align-items:center; justify-content:center">
+          <label for="">Date de sortie</label><br>
+        <input type="date" placeholder="Date de sortie" name="date_sortie">
+        </div>
+      </div>
       <input type="submit" style="margin-top: 15px" class="create" value="Créer">
     </form>
     @if (session('err'))

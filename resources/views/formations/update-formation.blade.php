@@ -34,6 +34,16 @@
         </div>
       </div>
     </div>
+    <div style="margin-top: 50px" class="form_two">
+      <div style="width: 100% ; display:flex ; flex-direction:column ;align-items:center; justify-content:center">
+       <label for="">Date d'entré</label><br>
+       <input type="date" placeholder="Date d'entré" value="{{$formation->date_entre}}" name="date_entre">
+      </div>
+       <div style="width: 100% ; display:flex ; flex-direction:column ;align-items:center; justify-content:center">
+         <label for="">Date de sortie</label><br>
+       <input type="date" placeholder="Date de sortie" value="{{$formation->date_sortie}}"  name="date_sortie">
+       </div>
+     </div>
     
     <input type="submit" style="margin-top: 45px" class="create" value="Save">
   </form>
