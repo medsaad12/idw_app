@@ -37,11 +37,15 @@
         </a>
         <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>New formulaires</span>
+          <span>Créer formulaire</span>
+        </a>
+        <a href="/forms/sub" class="link">
+          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <span>Formulaires remplis</span>
         </a>
         <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Formulaires</span>
+          <span>Remplir formulaires</span>
         </a>
         @endrole
         @role('AGENT')
@@ -53,9 +57,9 @@
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
-        <a href="/forms/create" class="link">
+        <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Creer-Formulaire</span>
+          <span>Remplir formulaires</span>
         </a>
         @endrole
         @role('CE')
@@ -93,10 +97,10 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Agents</span>
         </a>
-        {{-- <a href="{{ url('tableauDePresence') }}" class="link">
+        <a href="/presence" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
-        </a> --}}
+        </a>
         <a href="{{ url('tableauDesEntretiens') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Entretiens</span>
@@ -132,19 +136,23 @@
         @can('G-formulaires')
         <a href="/forms/create" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>New formulaires</span>
+          <span>Créer formulaire</span>
+        </a>
+        <a href="/forms/sub" class="link">
+          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <span>Formulaires remplis</span>
         </a>
         @endcan
 
         @can('remplissage-fromulaire')
         <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Formulaires</span>
+          <span>Remplir formulaires</span>
         </a>
         @endcan
 
         @can('G-présence')
-        <a href="{{ url('tableauDePresence') }}" class="link">
+        <a href="/presence" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Tableau de présence</span>
         </a>

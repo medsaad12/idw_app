@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Form;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\PresenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,12 +55,22 @@ Route::get('download/{id}',[ChatController::class,"download"])->middleware('auth
 
 Route::resource('/users',UserController::class)->middleware('auth' ,'permission:G-utilisateurs');
 
-Route::post('/forms/submit',[FormController::class , "submit"]);
+Route::post('/forms/submit',[FormController::class , "submit"])->middleware('auth');
+
+Route::get('/forms/submissions/{id}',[FormController::class , "submissions"]);
+
+Route::get('/forms/sub',function () {
+    return view('forms.liste-sub',["forms" => Form::all()]);
+});
 
 Route::resource('/forms',FormController::class);
 
+Route::get('/presence/user/{name}',[PresenceController::class , "presence_user" ]);
+
+Route::resource('/presence',PresenceController::class)->middleware('auth','permission:G-présence');
 
 
 
 
+ 
 
