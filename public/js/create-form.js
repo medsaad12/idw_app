@@ -13,7 +13,7 @@ function submitForm(){
     let question_type = qst.querySelector('select[name="inp_type"]').value
     let question = {}
 
-    question.question_name = question_name
+    question.question_name = question_name.split(" ").join("_")
     question.question_type = question_type
 
     if(question_type=="radio" || question_type=="checkbox"){
