@@ -89,7 +89,7 @@
           <img src="{{ asset('svgs/chat-left-dots-fill.svg') }}" class="icons">
           <span>Chat</span>
         </a>
-        <a href="{{ url('listeDeFormations') }}" class="link">
+        <a href="{{ url('formations') }}" class="link">
           <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
           <span>Formations</span>
         </a>

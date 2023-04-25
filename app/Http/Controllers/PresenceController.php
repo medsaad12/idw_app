@@ -92,23 +92,25 @@ class PresenceController extends Controller
      */
     public function show(Presence $presence)
     {
-       $users =  $presence->users ;
-       $myTab = array();
-       $attendaces = DB::table('presence_user')
-                ->select('user_id', 'presence' , 'hours')
-                ->where('presence_id',$presence->id)
-                ->get();
-        foreach ($attendaces as $attendace) {
-            if ($attendace->hours !== null ) {
-                $arr = ["userName" => User::find($attendace->user_id)->name , "presence" => $attendace->presence  , 'hours' => $attendace->hours];
-            } else {
-               $arr = ["userName" => User::find($attendace->user_id)->name , "presence" => $attendace->presence  ];
+			$pres_id = $presence->id;
+			$date = Presence::find($pres_id);
+			$users =  $presence->users;
+			$myTab = array();
+			$attendaces = DB::table('presence_user')
+							->select('user_id', 'presence' , 'hours')
+							->where('presence_id',$presence->id)
+							->get();
+			foreach ($attendaces as $attendace) {
+					if ($attendace->hours !== null ) {
+							$arr = ["userName" => User::find($attendace->user_id)->name , "presence" => $attendace->presence  , 'hours' => $attendace->hours];
+					} else {
+							$arr = ["userName" => User::find($attendace->user_id)->name , "presence" => $attendace->presence  ];
 
-            }
-            
-            array_push($myTab, $arr);
-        }
-        return view('presence.presence',['users'=>$users , "attendaces"=>$myTab]);
+					}
+					
+					array_push($myTab, $arr);
+			}
+			return view('presence.presence',['users'=>$users , "attendaces"=>$myTab, 'pres_date'=>$date]);
     }
 
     /**

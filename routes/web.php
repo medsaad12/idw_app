@@ -7,6 +7,8 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PresenceController;
+use App\Http\Controllers\EntretienController;
+use App\Http\Controllers\FormationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,18 +31,6 @@ Route::get('/', function () {
 
 Route::get('/profile', function () {
     return view('profile');
-})->middleware('auth');
-
-Route::get('/users', function () {
-    return view('chat/users');
-})->middleware('auth');
-
-Route::get('/create', function () {
-    return view('chat/create_user');
-})->middleware('auth');
-
-Route::get('/formulaires', function () {
-    return view('chat/formulaires');
 })->middleware('auth');
 
 Route::get('/chat/{id?}',[ChatController::class,'index'])->middleware('auth' ,'permission:chat');
@@ -70,7 +60,8 @@ Route::get('/presence/user/{name}',[PresenceController::class , "presence_user" 
 Route::resource('/presence',PresenceController::class)->middleware('auth','permission:G-présence');
 
 
+Route::get('/entretiens/search',[EntretienController::class,"search"])->middleware('auth','permission:G-entretiens');
 
+Route::resource('/entretiens',EntretienController::class)->middleware('auth','permission:G-entretiens');
 
- 
-
+Route::resource('/formations',FormationController::class)->middleware('auth','permission:G-formations');
