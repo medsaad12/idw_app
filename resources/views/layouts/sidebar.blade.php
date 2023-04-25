@@ -76,7 +76,7 @@
           <span>Codes</span>
         </a>
         <a href="{{ url('tableauDesAgents') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
@@ -225,7 +225,7 @@
 
         @can('Tableau-agents')
         <a href="{{ url('tableauDesAgents') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         @endcan
