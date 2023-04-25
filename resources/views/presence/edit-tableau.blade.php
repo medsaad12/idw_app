@@ -13,7 +13,7 @@
     @endif
     @if (session('succes'))
     <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Tableau de presence créé avec succès</h4>
+      <h4 class="alert-heading">Tableau de presence modifie avec succès</h4>
     </div>
     @endif
     <form id="presence-form" action="/presence/{{$presence->id}}" method="POST">

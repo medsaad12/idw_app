@@ -130,4 +130,21 @@ class ChatController extends Controller
         $message =  Message::find($id) ? Message::find($id): GroupMessage::find($id);
         return response()->download(public_path('documents/'.$message->document_path));
     }
+    public function getConversation(Request $request)
+    {
+        $users = User::all();
+        $receiver_id = $request->receiver;
+        $sender_id = $request->sender ; 
+        $messages = Message::where(function ($query) use ($sender_id, $receiver_id) {
+            $query->where('sender_id', $sender_id)
+                  ->where('receiver_id', $receiver_id);
+        })
+        ->orWhere(function ($query) use ($sender_id, $receiver_id) {
+            $query->where('sender_id', $receiver_id)
+                  ->where('receiver_id', $sender_id);
+        })
+        ->orderBy('created_at', 'asc')
+        ->get();
+        return view('G-conversation.conversation' , ['sender_id'=> $sender_id , 'users'=>User::all(),"messages"=>$messages]);
+    }
 }

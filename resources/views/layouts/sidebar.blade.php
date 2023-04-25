@@ -47,6 +47,10 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Remplir formulaires</span>
         </a>
+        <a href="/conversation" class="link">
+          <img height="34" width="34" src="{{ asset('svgs/conversation.png') }}" class="icons">
+          <span>Conversations</span>
+        </a>
         @endrole
         @role('AGENT')
         <a href="{{ url('chat') }}" class="link">
@@ -76,7 +80,7 @@
           <span>Codes</span>
         </a>
         <a href="{{ url('tableauDesAgents') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
@@ -113,6 +117,10 @@
           <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
           <span>Calculatrice </span>
         </a>
+        <a href="" class="link">
+          <img width="30" height="31" src="{{ asset('svgs/holidays.png') }}" class="icons">
+          <span>Calendrier fériés</span>
+        </a>
         <a href="{{ url('rdv') }}" class="link">
           <img src="{{ asset('svgs/bell.svg') }}" class="icons">
           <span>Notification</span>
@@ -138,9 +146,9 @@
         </a>
         @endcan
 
-        @can('G-conversations')
-        <a href="{{ url('groupes') }}" class="link">
-          <img src="{{ asset('svgs/people.svg') }}" class="icons">
+        @can('G-conversatio')
+         <a href="/conversation" class="link">
+          <img height="34" width="34" src="{{asset('svgs/conversation.png')}}" alt="">
           <span>Conversations</span>
         </a>
         @endcan
@@ -221,7 +229,7 @@
 
         @can('Tableau-agents')
         <a href="{{ url('tableauDesAgents') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         @endcan

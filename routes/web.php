@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Form;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
@@ -65,3 +66,16 @@ Route::get('/entretiens/search',[EntretienController::class,"search"])->middlewa
 Route::resource('/entretiens',EntretienController::class)->middleware('auth','permission:G-entretiens');
 
 Route::resource('/formations',FormationController::class)->middleware('auth','permission:G-formations');
+
+Route::get('/conversation',function () {
+    return view('G-conversation.conversation' , ['users'=>User::all(),'messages'=>[]]);
+});
+
+Route::post('/getConversation',[ChatController::class,"getConversation"]);
+
+
+
+
+
+ 
+
