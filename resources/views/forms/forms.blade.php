@@ -26,7 +26,7 @@
       @else
         @foreach (json_decode($field->options) as $option)
           <div class="options">
-            <input type={{$field->type}} value="{{$option}}" name={{$field->label}} id={{$field->label}} required>
+            <input type={{$field->type}} value="{{$option}}" name={{$field->label}} id={{$field->label}} >
             <label for={{$field->label}}>{{$option}}</label>
           </div>
         @endforeach

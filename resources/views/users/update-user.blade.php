@@ -41,7 +41,7 @@
         </div>
         
       </div>
-      <input type="submit" class="create" value="Créer">
+      <input type="submit" class="create" value="Save">
     </form>
     <script>
       var alertList = document.querySelectorAll('.alert');

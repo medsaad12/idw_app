@@ -32,11 +32,11 @@
           <span>Utilisateurs</span>
         </a>
         <a href="/forms/create" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         <a href="/forms" class="link">
@@ -90,7 +90,7 @@
           <span>Groupes</span>
         </a>
         <a href="/formations" class="link">
-          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
+          <img width="36" height="38" src="{{ asset('svgs/formation.png') }}" class="icons">
           <span>Gestion de formations</span>
         </a>
         <a href="{{ url('StatistiqueDesAgent') }}" class="link">
@@ -98,19 +98,19 @@
           <span>Statistique des agent </span>
         </a>
         <a href="/presence" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="3" height="35" src="{{ asset('svgs/presence.png') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
         <a href="/entretiens" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="35" src="{{ asset('svgs/entretien.png') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
         <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Calculatrice</span>
+          <img width="38" height="35" src="{{ asset('svgs/calculatrice.png') }}" class="icons">
+          <span>Calculatrice </span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
           <span>Notification</span>
         </a>
         @endrole
@@ -143,11 +143,11 @@
 
         @can('G-formulaires')
         <a href="/forms/create" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         @endcan
@@ -161,42 +161,42 @@
 
         @can('G-présence')
         <a href="/presence" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="3" height="35" src="{{ asset('svgs/presence.png') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
         @endcan
 
         @can('G-entretiens')
         <a href="/entretiens" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img height="30" width="35" src="{{ asset('svgs/entretien.png') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
         @endcan
 
         @can('G-formations')
         <a href="/formations" class="link">
-          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
+          <img width="36" height="38" src="{{ asset('svgs/formation.png') }}" class="icons">
           <span>Gestion de formations</span>
         </a>
         @endcan
 
         @can('Calcule-salaire')
         <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="38" height="35" src="{{ asset('svgs/calculatrice.png') }}" class="icons">
           <span>Calculatrice </span>
         </a>
         @endcan
 
         @can('Calcule-assiduité ')
         <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="38" height="35" src="{{ asset('svgs/calculatrice.png') }}" class="icons">
           <span>Calculatrice </span>
         </a>
         @endcan
 
         @can('Calcule-prime')
         <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="38" height="35" src="{{ asset('svgs/calculatrice.png') }}" class="icons">
           <span>Calculatrice </span>
         </a>
         @endcan
@@ -231,7 +231,7 @@
 
         @can('notification')
         <a href="{{ url('rdv') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
+          <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
           <span>Notification</span>
         </a>
         @endcan
