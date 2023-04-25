@@ -20,7 +20,7 @@
         <label for="date-input">Date:</label>
         <input type="date" class="form-control" id="date-input" name="date">
       </div>
-      <table class="table table-bordered">
+      <table class="table">
         <thead>
           <tr>
             <th>User ID</th>
@@ -36,12 +36,12 @@
           <tr>
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
-            <td><input type="radio" name="{{$user->id}}-presence[]" value="present"></td>
-            <td><input type="radio" name="{{$user->id}}-presence[]" value="absent"></td>
-            <td><input type="radio" name="{{$user->id}}-presence[]" value="en-retard">
-              <input style="width:60px" name="{{$user->id}}-retard" type="number"></td>
-            <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge">
-              <input style="width:60px" name="{{$user->id}}-decharge" type="number"></td>
+            <td><input type="radio" name="{{$user->id}}-presence[]" value="present" onclick=untoggle(this)></td>
+            <td><input type="radio" name="{{$user->id}}-presence[]" value="absent" onclick=untoggle(this)></td>
+            <td><input type="radio" name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
+              <input style="width:60px; display: none;" name="{{$user->id}}-retard" type="number"></td>
+            <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
+              <input style="width:60px; display: none;" name="{{$user->id}}-decharge" type="number"></td>
           </tr>
           @empty
             No User Yet
@@ -51,5 +51,5 @@
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
   </div>
-  <script src="{{asset('js/create-tableau.js')}}"></script>
+  <script src="{{asset('js/edit-pres.js')}}"></script>
 @endsection

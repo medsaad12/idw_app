@@ -43,33 +43,33 @@
                 @if ($attendaces[$i]['userName'] == $user->name && $attendaces[$i]['presence'] == "absent")
                 <td><input type="radio" name="{{$user->id}}-presence[]" value="present" onclick=untoggle(this)></td>
                 <td><input type="radio" checked name="{{$user->id}}-presence[]" value="absent" onclick=untoggle(this)></td>
-                <td><input type="radio" name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
                 <input style="width:60px; display: none;" name="{{$user->id}}-retard" type="number"></td>
-                <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
                 <input style="width:60px; display: none;" name="{{$user->id}}-decharge" type="number"></td>
                 @endif
                 @if ($attendaces[$i]['userName'] == $user->name && $attendaces[$i]['presence'] == "present")
                 <td><input type="radio" checked name="{{$user->id}}-presence[]" value="present" onclick=untoggle(this)></td>
                 <td><input type="radio"  name="{{$user->id}}-presence[]" value="absent" onclick=untoggle(this)></td>
-                <td><input type="radio" name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
                 <input style="width:60px; display: none;" name="{{$user->id}}-retard"type="number"></td>
-                <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
               <input style="width:60px; display: none;" name="{{$user->id}}-decharge" type="number"></td>
                 @endif
                 @if ($attendaces[$i]['userName'] == $user->name && $attendaces[$i]['presence'] == "en-retard")
                 <td><input type="radio" name="{{$user->id}}-presence[]" value="present" onclick=untoggle(this)></td>
                 <td><input type="radio" name="{{$user->id}}-presence[]" value="absent" onclick=untoggle(this)></td>
-                <td><input type="radio" checked name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" checked name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
                 <input style="width:60px; display: none;" value="{{$attendaces[$i]['hours']}}" name="{{$user->id}}-retard" type="number"></td>
-                <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
                 <input style="width:60px; display: none;"  name="{{$user->id}}-decharge" type="number"></td>
                 @endif
                 @if ($attendaces[$i]['userName'] == $user->name && $attendaces[$i]['presence'] == "décharge")
                 <td><input type="radio" name="{{$user->id}}-presence[]" value="present" onclick=untoggle(this)></td>
                 <td><input type="radio" name="{{$user->id}}-presence[]" value="absent" onclick=untoggle(this)></td>
-                <td><input type="radio"  name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio"  name="{{$user->id}}-presence[]" value="en-retard" onclick=toggle(this)>
                 <input style="width:60px; display: none;" name="{{$user->id}}-retard" type="number"></td>
-                <td><input type="radio" checked name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
+                <td><input class="dec_ret" type="radio" checked name="{{$user->id}}-presence[]" value="décharge" onclick=toggle(this)>
                 <input style="width:60px; display: none;" value="{{$attendaces[$i]['hours']}}" name="{{$user->id}}-decharge" type="number"></td>
                 @endif
             @endfor
