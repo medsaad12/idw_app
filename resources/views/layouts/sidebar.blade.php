@@ -43,6 +43,10 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Remplir formulaires</span>
         </a>
+        <a href="/conversation" class="link">
+          <img height="34" width="34" src="{{ asset('svgs/conversation.png') }}" class="icons">
+          <span>Conversations</span>
+        </a>
         @endrole
         @role('AGENT')
         <a href="{{ url('chat') }}" class="link">
@@ -134,9 +138,9 @@
         </a>
         @endcan
 
-        @can('G-conversations')
-        <a href="{{ url('groupes') }}" class="link">
-          <img src="{{ asset('svgs/people-fill.svg') }}" class="icons">
+        @can('G-conversatio')
+         <a href="/conversation" class="link">
+          <img height="34" width="34" src="{{asset('svgs/conversation.png')}}" alt="">
           <span>Conversations</span>
         </a>
         @endcan
