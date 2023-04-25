@@ -92,6 +92,8 @@ class PresenceController extends Controller
      */
     public function show(Presence $presence)
     {
+       $pres_id = $presence->id;
+       $date = Presence::find($pres_id);
        $users =  $presence->users ;
        $myTab = array();
        $attendaces = DB::table('presence_user')
@@ -108,7 +110,7 @@ class PresenceController extends Controller
             
             array_push($myTab, $arr);
         }
-        return view('presence.presence',['users'=>$users , "attendaces"=>$myTab]);
+        return view('presence.presence',['users'=>$users , "attendaces"=>$myTab , 'pres_date'=>$date]);
     }
 
     /**
