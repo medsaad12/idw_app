@@ -33,6 +33,7 @@ class PermissionSeeder extends Seeder
             ["name"=>"Tableau-agents"],
             ["name"=>"Tableau-RDV"],
             ["name"=>"G-notifications"],
+            ["name"=>"G-calendrier"],
         ];
 
         for ($i=0; $i < count($permissions); $i++) { 

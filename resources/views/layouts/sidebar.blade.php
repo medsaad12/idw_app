@@ -113,6 +113,10 @@
           <img width="38" height="35" src="{{ asset('svgs/calculatrice.png') }}" class="icons">
           <span>Calculatrice </span>
         </a>
+        <a href="" class="link">
+          <img width="30" height="31" src="{{ asset('svgs/holidays.png') }}" class="icons">
+          <span>Calendrier fériés</span>
+        </a>
         <a href="{{ url('rdv') }}" class="link">
           <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
           <span>Notification</span>
