@@ -1,3 +1,9 @@
+window.onload = ()=>{
+  let inps = document.querySelectorAll('.dec_ret')
+  inps.forEach(a => {
+    if(a.checked) toggle(a)
+  })
+}
 function toggle(that){
     let id = that.name.split('-')[0]
     if(that.parentNode.querySelector('input[name="'+ id +'-decharge"]')){
@@ -22,3 +28,4 @@ function toggle(that){
       input_dec.style.display = 'none'
     }
   }
+  
