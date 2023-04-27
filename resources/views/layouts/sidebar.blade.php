@@ -117,10 +117,7 @@
           <img width="30" height="31" src="{{ asset('svgs/holidays.png') }}" class="icons">
           <span>Calendrier fériés</span>
         </a>
-        <a href="{{ url('rdv') }}" class="link">
-          <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
-          <span>Notification</span>
-        </a>
+        
         @endrole
         @else
         @can('chat')
@@ -236,14 +233,16 @@
           <span>Tableau des RDV</span>
         </a>
         @endcan
-
-        @can('notification')
-        <a href="{{ url('rdv') }}" class="link">
-          <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
-          <span>Notification</span>
-        </a>
-        @endcan
         @endif
+        
+        <a href="/notifications" class="link">
+          <img width="30" height="31" src="{{ asset('svgs/notification.png') }}" class="icons">
+          <span>Notification</span><span id="notification">{{count(Auth::user()->notifications->filter(function ($notification) {
+            return $notification->read_at === null;
+        })) == 0 ? " " : count(Auth::user()->notifications->filter(function ($notification) {
+            return $notification->read_at === null;
+        })) }}</span>
+        </a>
         <a onclick="logout()" class="link">
           <img width="30" height="38" src="{{ asset('svgs/logout.png') }}"
             class="icons">

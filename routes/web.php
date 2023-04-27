@@ -10,6 +10,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,9 @@ Route::get('/conversation',function () {
 
 Route::post('/getConversation',[ChatController::class,"getConversation"]);
 
+Route::post('/notifications/read',[NotificationController::class,'readNotification']);
+
+Route::resource('/notifications',NotificationController::class);
 
 
 
