@@ -74,12 +74,16 @@
           <span>Groupes</span>
         </a>
         <a href="{{ url('codes') }}" class="link">
-          <img src="{{ asset('svgs/people.svg') }}" class="icons">
+          <img src="{{ asset('svgs/.svg') }}" class="icons">
           <span>Codes</span>
         </a>
         <a href="{{ url('tableauDesAgents') }}" class="link">
           <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
+        </a>
+        <a href="/equipes" class="link">
+          <img src="{{ asset('svgs/people.svg') }}" class="icons">
+          <span>Equipes</span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
@@ -227,6 +231,10 @@
           <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
+        <a href="/equipes" class="link">
+          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
+          <span>Equipes</span>
+        </a>
         @endcan
 
         @can('Tableau-RDV')
@@ -236,8 +244,6 @@
         </a>
         @endcan
 
-        
-       
         @endif
         <a href="/notifications" class="link">
           <img src="{{ asset('svgs/bell.svg') }}" class="icons">

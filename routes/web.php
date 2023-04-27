@@ -7,6 +7,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
@@ -87,6 +88,7 @@ Route::post('/calendrier/delete/{id}',[CalendrierController::class,"delete"])->m
 Route::post('/calendrier/add',[CalendrierController::class,"add"])->middleware('auth');
 Route::post('/calendrier/modify/{id}',[CalendrierController::class,"edit"])->middleware('auth');
 
+Route::resource('/equipes',EquipeController::class)->middleware('auth');
 
  
 
