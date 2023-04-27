@@ -7,8 +7,6 @@
     <title>IDW</title>
     <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/crud_table.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/create_user.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="{{ asset('js/clear_radio.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -93,7 +91,7 @@
           <img src="{{ asset('svgs/chat-left-dots.svg') }}" class="icons">
           <span>Chat</span>
         </a>
-        <a href="{{ url('formations') }}" class="link">
+        <a href="{{ url('groupes') }}" class="link">
           <img src="{{ asset('svgs/people.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
@@ -101,7 +99,7 @@
           <img src="{{ asset('svgs/mortarboard.svg') }}" class="icons">
           <span>Gestion de formations</span>
         </a>
-        <a href="{{ url('StatistiqueDesAgent') }}" class="link">
+        <a href="{{ url('stat') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Agents</span>
         </a>
@@ -117,8 +115,8 @@
           <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
           <span>Calculatrice </span>
         </a>
-        <a href="" class="link">
-          <img width="30" height="31" src="{{ asset('svgs/holidays.png') }}" class="icons">
+        <a href="{{ url('calendrier') }}" class="link">
+          <img src="{{ asset('svgs/calendar.svg') }}" class="icons">
           <span>Calendrier fériés</span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
@@ -214,7 +212,7 @@
         @endcan
 
         @can('statistique-agent')
-        <a href="{{ url('StatistiqueDesAgent') }}" class="link">
+        <a href="{{ url('stat') }}" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Statistique des agent </span>
         </a>
@@ -255,7 +253,7 @@
         </a>
       </div>
     </div>
-    <div class="container">
+    <div class="continer">
       @yield('content')
     </div>
   </body>

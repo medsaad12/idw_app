@@ -4,12 +4,14 @@ use App\Models\Form;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\OuverturePorteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,14 @@ Route::get('/forms/sub',function () {
 
 Route::resource('/forms',FormController::class);
 
+Route::get('/calendrier',[CalendrierController::class,"get"])->middleware('auth');
+Route::get('/calendrier/ajouter',function(){
+    return view('calendrier/ajouter_jour');
+})->middleware('auth');
+Route::post('/calendrier/delete/{id}',[CalendrierController::class,"delete"])->middleware('auth');
+Route::post('/calendrier/add',[CalendrierController::class,"add"])->middleware('auth');
+Route::post('/calendrier/modify/{id}',[CalendrierController::class,"edit"])->middleware('auth');
+
 Route::get('/presence/user/{name}',[PresenceController::class , "presence_user" ]);
 
 Route::resource('/presence',PresenceController::class)->middleware('auth','permission:G-présence');
@@ -73,9 +83,8 @@ Route::get('/conversation',function () {
 
 Route::post('/getConversation',[ChatController::class,"getConversation"]);
 
+Route::get('/ouvertureporte',[OuverturePorteController::class,"get"]);
 
-
-
-
- 
-
+Route::get('/stat_test',function(){
+    return json_encode('waaa3');
+});

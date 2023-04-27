@@ -15,7 +15,6 @@
           </div>
         </div>
       </a>
-      <hr>
       @endif
       @empty
         No User Yet  
@@ -33,9 +32,9 @@
         </div>
       </div>
       @if (session('err'))
-                  <div class="alert alert-danger text-center">
-                    {{strtoupper(session('err'))}}
-                   </div>
+        <div class="alert alert-danger text-center">
+          {{strtoupper(session('err'))}}
+        </div>
       @endif
       <form class="msg_input" action="/send" method="POST" enctype="multipart/form-data">
         @csrf 

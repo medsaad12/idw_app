@@ -1,4 +1,5 @@
 import './bootstrap';
+import * as d3 from 'd3';
 
 function getData(){
     var id = document.getElementById('receiver').value
