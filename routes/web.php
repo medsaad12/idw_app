@@ -10,6 +10,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\NotificationController;
 
 /*
@@ -78,7 +79,13 @@ Route::post('/notifications/read',[NotificationController::class,'readNotificati
 
 Route::resource('/notifications',NotificationController::class);
 
-
+Route::get('/calendrier',[CalendrierController::class,"get"])->middleware('auth');
+Route::get('/calendrier/ajouter',function(){
+    return view('calendrier/ajouter_jour');
+})->middleware('auth');
+Route::post('/calendrier/delete/{id}',[CalendrierController::class,"delete"])->middleware('auth');
+Route::post('/calendrier/add',[CalendrierController::class,"add"])->middleware('auth');
+Route::post('/calendrier/modify/{id}',[CalendrierController::class,"edit"])->middleware('auth');
 
 
  
