@@ -73,12 +73,8 @@
           <img src="{{ asset('svgs/people.svg') }}" class="icons">
           <span>Groupes</span>
         </a>
-        <a href="{{ url('codes') }}" class="link">
-          <img src="{{ asset('svgs/people.svg') }}" class="icons">
-          <span>Codes</span>
-        </a>
         <a href="{{ url('tableauDesAgents') }}" class="link">
-          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
+          <img src="{{ asset('svgs/table.svg') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         <a href="{{ url('rdv') }}" class="link">
@@ -99,9 +95,13 @@
           <img src="{{ asset('svgs/mortarboard.svg') }}" class="icons">
           <span>Gestion de formations</span>
         </a>
+        <a href="{{ url('calcul') }}" class="link">
+          <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
+          <span>Calcule Salaire</span>
+        </a>
         <a href="{{ url('stat') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Agents</span>
+          <img src="{{ asset('svgs/graph-up.svg') }}" class="icons">
+          <span>Statistiques</span>
         </a>
         <a href="/presence" class="link">
           <img src="{{ asset('svgs/person-check.svg') }}" class="icons">
@@ -111,9 +111,6 @@
           <img src="{{ asset('svgs/person-workspace.svg') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
-        <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
-          <span>Calculatrice </span>
         </a>
         <a href="{{ url('calendrier') }}" class="link">
           <img src="{{ asset('svgs/calendar.svg') }}" class="icons">
@@ -190,31 +187,10 @@
         </a>
         @endcan
 
-        @can('Calcule-salaire')
-        <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
-          <span>Calculatrice </span>
-        </a>
-        @endcan
-
-        @can('Calcule-assiduité ')
-        <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
-          <span>Calculatrice </span>
-        </a>
-        @endcan
-
-        @can('Calcule-prime')
-        <a href="{{ url('calculatrice') }}" class="link">
-          <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
-          <span>Calculatrice </span>
-        </a>
-        @endcan
-
         @can('statistique-agent')
         <a href="{{ url('stat') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Statistique des agent </span>
+          <img src="{{ asset('svgs/graph-up.svg') }}" class="icons">
+          <span>Statistiques</span>
         </a>
         @endcan
 

@@ -1,0 +1,92 @@
+.list_agents, .calc_agent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  margin: 20px 0px 20px 0px;
+}
+
+a{
+  text-decoration: none;
+}
+
+.list_agents a:visited{
+  color: var(--bs-link-color);
+}
+
+.tab{
+  width: 100%;
+  max-height: 160px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+.ouverture th{
+  margin-left: auto;
+}
+
+.res{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.res span{
+  font-size: large;
+  font-weight: 500;
+}
+
+.res small{
+  margin-left: 10px;
+}
+
+.input_salaire{
+  border: 0;
+  border-bottom: 1px solid;
+  width: 400px;
+  outline: none;
+  padding: 10px;
+  font-size: medium;
+}
+
+.salaire, .prime, .assuidité{
+  margin: 10px 0px 10px 0px;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.salaire select, .salaire input{
+  width: 200px;
+  margin-left: 15px;
+}
+
+.month_pick{
+  display: flex;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+.month_pick * {
+  margin: 0px 10px 0px 10px;
+}
+
+.month_pick input{
+  width: 100px;
+  border: 0;
+  border-bottom: 1px solid;
+  outline: none;
+  padding: 10px;
+  font-size: medium;
+}
+
+.month_pick button{
+  padding: 2px 5px 2px 5px;
+}
+
+.sub{
+  margin-top: 10px;
+}

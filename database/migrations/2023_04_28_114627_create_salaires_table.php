@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ouverture_porte', function (Blueprint $table) {
+        Schema::create('salaires', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('agent_id');
-            $table->foreign('agent_id')->references('id')->on('agents')->onDelete('cascade');
-            // add any other columns you need
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ouverture_portes');
+        Schema::dropIfExists('salaires');
     }
 };

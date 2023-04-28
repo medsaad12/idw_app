@@ -21,7 +21,8 @@
       @method('put')
       <div class="form-group">
         <label for="date-input">Date:</label>
-        <input type="date" class="form-control" id="date-input" name="date" value="{{$presence->date}}" disabled>
+        <input type="date" class="form-control" id="date-input" value="{{$presence->date}}" disabled>
+        <input type="hidden" class="form-control" id="date-input" name="date" value="{{$presence->date}}">
       </div>
       <table class="table">
         <thead>

@@ -14,6 +14,7 @@
     </thead>
     <tbody>
       @forelse ($attendaces as $attendace)
+      {{-- @if($attendance['presence'] !== "present" && $attendance['presence'] !== "absent") --}}
         @if (array_key_exists('hours', $attendace))
           <tr>
             <td>{{$attendace["userName"]}}</td>

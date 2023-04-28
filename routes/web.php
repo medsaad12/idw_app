@@ -12,6 +12,7 @@ use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\OuverturePorteController;
+use App\Http\Controllers\CalculController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,8 +84,12 @@ Route::get('/conversation',function () {
 
 Route::post('/getConversation',[ChatController::class,"getConversation"]);
 
-Route::get('/ouvertureporte',[OuverturePorteController::class,"get"]);
+Route::get('/calcul',[CalculController::class,"get_agents"]);
+Route::get('/calcul/{id}',[CalculController::class,"get_agent_data"]);
+Route::post('/calcul/save',[CalculController::class,'save']);
 
-Route::get('/stat_test',function(){
-    return json_encode('waaa3');
-});
+// Route::get('/ouvertureporte',[OuverturePorteController::class,"get"]);
+
+// Route::get('/stat',function(){
+//     return view('statistiques/stats_all');
+// });
