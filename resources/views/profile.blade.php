@@ -10,12 +10,10 @@
         <h2>{{strtoupper(Auth::user()->name)}}</h2>
         <div class="infos">
           <div class="info_labels">
-            <span>Email:</span>
-            <span>Num Tél:</span>
+            <span style="margin-right: 0px">Email:</span>
           </div>
           <div class="info_values">
-            <span>{{Auth::user()->email}}</span>
-            <span>0714354819</span>
+            <span style="margin-left: 0px">{{Auth::user()->email}}</span>
           </div>
         </div>
       </div>

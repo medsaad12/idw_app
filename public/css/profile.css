@@ -28,12 +28,14 @@ h1{
   display: flex;
   flex-direction: column;
   width: 40%;
+  margin-right: 0px;
 }
 
 .info_values{
   display: flex;
   flex-direction: column;
   width: 40%;
+  margin-left: 0px;
 }
 
 .profile_img{

@@ -78,7 +78,7 @@
           <span>Codes</span>
         </a>
         <a href="/tableaux" class="link">
-          <img src="{{ asset('svgs/table.svg') }}" class="icons">
+          <img width="20px" height="20px" src="{{ asset('svgs/table.svg') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         <a href="/equipes" class="link">
