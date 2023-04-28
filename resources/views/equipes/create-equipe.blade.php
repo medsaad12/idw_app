@@ -38,7 +38,7 @@
         </div>
     @endif
     @empty
-        No User Yet !!
+       Pas encore d'équipe !!
     @endforelse
     </div>
     <div class="col-md-12 mt-2">

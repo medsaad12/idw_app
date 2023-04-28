@@ -29,7 +29,7 @@
         <input type="text" class="form-control" value="{{$equipe->chef}}" name="chef" id="name" placeholder="Chef du equipe">
         </div>
     <h5 class="mt-2 mb-2">Agents D'equipe :</h5>
-    @forelse (App\Models\User::all() as $user)
+    @forelse ($users as $user)
     @if ($user->id !== Auth::user()->id)
     <div class="form-check">
         <input class="form-check-input" @if(in_array($user->id, json_decode($equipe->agents)))checked @endif type="checkbox" name="agents[]" value="{{$user->id}}" id="flexCheckDefault">

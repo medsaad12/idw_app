@@ -2,12 +2,16 @@
 
 use App\Models\Form;
 use App\Models\User;
+use App\Models\Equipe;
+use App\Models\Tableau;
+use App\Models\TableauRow;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\TableauController;
 use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
@@ -90,5 +94,39 @@ Route::post('/calendrier/modify/{id}',[CalendrierController::class,"edit"])->mid
 
 Route::resource('/equipes',EquipeController::class)->middleware('auth');
 
- 
+
+Route::get('/tableaux/{id}',function ($id) {
+    $equipe = Equipe::find($id);
+    $tableaux = Tableau::where('equipe_id',$id)->get();
+    return view('tableaux.equipe-tableaux',['tableaux'=>$tableaux,'equipe'=>$equipe]);
+});
+
+Route::get('/tableaux/{id}/create',function ($id)
+{
+    $equipe = Equipe::find($id);
+    function myfunction($v)
+    {
+      return User::find($v);
+    }
+    $agents = array_map("myfunction",json_decode($equipe->agents));
+    
+    return view('tableaux.create-tableau',[ 'equipe' => $equipe , 'agents' => $agents ]);
+    });
+
+Route::get('/tableaux',function () {
+    return view('tableaux.equipes',['equipes'=>Equipe::all()]);
+});
+
+Route::post('tableaux/store',[TableauController::class,'store']);
+
+Route::post('tableaux/update/{id}',[TableauController::class,'update']);
+
+Route::get('/tableau/{id}',function ($id) {
+    $tableau = Tableau::find($id);
+    $equipe = Equipe::find($tableau->equipe_id);
+    $rows = TableauRow::where("tableau_id",$id)->get();
+    return view('tableaux.tableau',['tableau'=>$tableau , 'rows' => $rows , 'equipe' => $equipe]);
+});
+
+
 

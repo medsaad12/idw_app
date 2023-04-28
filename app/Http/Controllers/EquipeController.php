@@ -27,7 +27,10 @@ class EquipeController extends Controller
      */
     public function create()
     {
-        return view('equipes.create-equipe',['users'=>User::all()]);
+        $agents = User::all()->filter(function ($user) {
+            return $user->hasRole("AGENT") ;
+        });
+        return view('equipes.create-equipe',['users'=>$agents]);
     }
 
     /**
@@ -75,7 +78,10 @@ class EquipeController extends Controller
      */
     public function edit(Equipe $equipe)
     {
-        return view('equipes.edit-equipe',['equipe'=>$equipe]);
+        $agents = $agents = User::all()->filter(function ($user) {
+            return $user->hasRole("AGENT") ;
+        });
+        return view('equipes.edit-equipe',['equipe'=>$equipe , 'users' => $agents]);
     }
 
     /**
