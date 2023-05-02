@@ -228,7 +228,7 @@
         @endcan
 
         @endif
-        <a href="/notifications" class="link">
+        <a href="/notifications" style="position:relative"class="link">
           <img src="{{ asset('svgs/bell.svg') }}" class="icons">
           <span>Notification</span><span id="notification">{{count(Auth::user()->notifications->filter(function ($notification) {
             return $notification->read_at === null;
