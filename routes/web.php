@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
+use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\CalculController;
 use App\Http\Controllers\EquipeController;

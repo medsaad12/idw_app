@@ -122,6 +122,7 @@
         
         @endrole
         @else
+
         @can('chat')
         <a href="{{ url('chat') }}" class="link">
           <img src="{{ asset('svgs/chat-left-dots.svg') }}" class="icons">
@@ -135,7 +136,7 @@
 
         @can('G-utilisateurs')
         <a href="{{ url('users') }}" class="link">
-          <img src="{{ asset('svgs/management.png') }}"
+          <img width="20" height="38" src="{{ asset('svgs/management.png') }}"
             class="icons">
           <span>Utilisateurs</span>
         </a>
@@ -150,11 +151,11 @@
 
         @can('G-formulaires')
         <a href="/forms/create" class="link">
-          <img src="{{ asset('svgs/formulaire.png') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img src="{{ asset('svgs/remplis.png') }}" class="icons">
+          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         @endcan
@@ -210,11 +211,11 @@
 
         @can('Tableau-agents')
         <a href="/tableaux" class="link">
-          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
+          <img width="20px" height="20px" src="{{ asset('svgs/table.svg') }}" class="icons">
           <span>Tableau des Agents</span>
         </a>
         <a href="/equipes" class="link">
-          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
+          <img src="{{ asset('svgs/people.svg') }}" class="icons">
           <span>Equipes</span>
         </a>
         @endcan
