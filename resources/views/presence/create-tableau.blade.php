@@ -33,7 +33,8 @@
         </thead>
         <tbody>
           @forelse ($users as $user)
-          <tr>
+          @if ($user->name !== "admin")
+             <tr>
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td><input type="radio" name="{{$user->id}}-presence[]" value="present"></td>
@@ -42,7 +43,9 @@
               <input style="width:60px" name="{{$user->id}}-retard" type="number"></td>
             <td><input type="radio" name="{{$user->id}}-presence[]" value="décharge">
               <input style="width:60px" name="{{$user->id}}-decharge" type="number"></td>
-          </tr>
+          </tr> 
+          @endif
+          
           @empty
             No User Yet
           @endforelse
