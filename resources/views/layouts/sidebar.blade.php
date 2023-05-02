@@ -85,9 +85,9 @@
           <img src="{{ asset('svgs/people.svg') }}" class="icons">
           <span>Equipes</span>
         </a>
-        <a href="{{ url('rdv') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Tableau des RDV</span>
+        <a href="/production" class="link">
+          <img width="20px" height="20px" src="{{ asset('svgs/production.svg') }}" class="icons">
+          <span>Production</span>
         </a>
         @endrole
         @role('RH')
@@ -238,9 +238,9 @@
         @endcan
 
         @can('Tableau-RDV')
-        <a href="{{ url('rdv') }}" class="link">
-          <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
-          <span>Tableau des RDV</span>
+        <a href="/production" class="link">
+          <img width="20px" height="20px" src="{{ asset('svgs/production.svg') }}" class="icons">
+          <span>Production</span>
         </a>
         @endcan
 

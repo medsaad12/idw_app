@@ -63,6 +63,7 @@ class TableauController extends Controller
             $tableau_row = new TableauRow ;
             $tableau_row->tableau_id = $tableau->id ;
             $tableau_row->agent = $agent->id ;
+            $tableau_row->date = $tableau->date ;
             $req = ['Rdv_brut','Rdv_confirme_telephone','Rdv_ouverture_de_porte','Rdv_annuler'] ;
             for ($i=0; $i < count($req); $i++) { 
                 $input = $agent->id."-".$req[$i];
@@ -145,7 +146,8 @@ class TableauController extends Controller
                         'Rdv_brut' => $request->$Rdv_brut ,
                         'Rdv_confirme_telephone' => $request->$Rdv_confirme_telephone,
                         'Rdv_ouverture_de_porte' => $request->$Rdv_ouverture_de_porte,
-                        'Rdv_annuler' => $request->$Rdv_annuler
+                        'Rdv_annuler' => $request->$Rdv_annuler,
+                        "date" => $request->date 
                     ]);
                 }
             }

@@ -1,0 +1,9 @@
+.periode{
+    display: none ;
+}
+.refresh{
+    width: 100%;
+    display: flex;
+     justify-content: flex-end;
+   
+}

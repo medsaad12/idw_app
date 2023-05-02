@@ -16,6 +16,7 @@ use App\Http\Controllers\PresenceController;
 use App\Http\Controllers\EntretienController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CalendrierController;
+use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\NotificationController;
 
 /*
@@ -127,6 +128,10 @@ Route::get('/tableau/{id}',function ($id) {
     $rows = TableauRow::where("tableau_id",$id)->get();
     return view('tableaux.tableau',['tableau'=>$tableau , 'rows' => $rows , 'equipe' => $equipe]);
 });
+
+Route::get('/production',[ProductionController::class,'index']);
+
+
 
 
 
