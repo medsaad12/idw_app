@@ -45,7 +45,7 @@
       </table>
     </div>
     
-    <table class="ouverture table table-bordered"><th>Ouverture de portes:</th><td class="over">10</td></table>
+    <table class="ouverture table table-bordered"><th>Ouverture de portes:</th><td class="over">{{$ouvs}}</td></table>
 
     <form class="res" action="save" method="POST">
       @method('post')

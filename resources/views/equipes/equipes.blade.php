@@ -22,7 +22,7 @@
             <td>{{$equipe->name}}</td>
             <td>{{$equipe->chef}}</td>
             <td>@foreach (json_decode($equipe->agents) as $item)
-        {{App\Models\User::find($item)->name ;}}
+            {{App\Models\User::find($item)->name ;}}
             @endforeach</td>
             <td><a href="/equipes/{{$equipe->id}}/edit"><input type="button" class="mod crud_btn" value="Modifier"></a></td>
             <td><form method="post" action="/equipes/{{$equipe->id}}">@csrf @method('delete')<input type="submit" class="del crud_btn" value="Supprimer"></form></td>
