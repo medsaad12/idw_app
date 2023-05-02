@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Tableau;
+use App\Models\TableauRow;
 use App\Models\Salaire;
 use App\Models\Presence;
 use App\Http\Controllers\Controller;
@@ -28,6 +30,23 @@ class CalculController extends Controller
     if(isset($request->date)){
       $searched = true;
       $date = $request->date;
+      $productions = array();
+      $data = TableauRow::where('agent', $id)
+        ->whereMonth('date', $request->date)
+        ->get();
+      $totals = collect($data)
+      ->groupBy('agent')
+      ->map(function ($group) {
+      return[
+          'agent_id' => $group[0]['agent'],
+          'agent' => User::find($group[0]['agent'])->name,
+          'Rdv_brut' => $group->sum('Rdv_brut'),
+          'Rdv_confirme_telephone' => $group->sum('Rdv_confirme_telephone'),
+          'Rdv_ouverture_de_porte' => $group->sum('Rdv_ouverture_de_porte'),
+          'Rdv_annuler' => $group->sum('Rdv_annuler'),
+      ];
+      })->all();
+      $productions = array_merge($productions, $totals);
       if(Salaire::whereRaw("MONTH(date) = $request->date AND YEAR(date) = $request->year AND agent_id = $id")->count()>0){
         $exists=true;
         $sal = Salaire::whereRaw("MONTH(date) = $request->date AND YEAR(date) = $request->year AND agent_id = $id")->get()[0]->salaire;
@@ -59,6 +78,23 @@ class CalculController extends Controller
         }
     }
     else{
+      $productions = array();
+      $data = TableauRow::where('agent', $id)
+        ->whereMonth('date', date('m'))
+        ->get();
+      $totals = collect($data)
+      ->groupBy('agent')
+      ->map(function ($group) {
+      return[
+          'agent_id' => $group[0]['agent'],
+          'agent' => User::find($group[0]['agent'])->name,
+          'Rdv_brut' => $group->sum('Rdv_brut'),
+          'Rdv_confirme_telephone' => $group->sum('Rdv_confirme_telephone'),
+          'Rdv_ouverture_de_porte' => $group->sum('Rdv_ouverture_de_porte'),
+          'Rdv_annuler' => $group->sum('Rdv_annuler'),
+      ];
+      })->all();
+      $productions = array_merge($productions, $totals);
       foreach(Presence::whereRaw("MONTH(date) = date('m') AND YEAR(date) = YEAR(curdate())")->get() as $pres){
         if(Salaire::whereRaw("MONTH(date) = date('m') AND YEAR(date) = YEAR(curdate()) AND agent_id = $id")->count()>0){
           $exists=true;
@@ -98,7 +134,8 @@ class CalculController extends Controller
       'exists'=>$exists,
       'salaire'=>$sal,
       'searched'=>$searched,
-      'month'=>$date
+      'month'=>$date,
+      'ouvs'=>$productions[0]['Rdv_ouverture_de_porte']
     ]);
   }
   
@@ -112,7 +149,4 @@ class CalculController extends Controller
     $salaire->save();
     return back();
   }
-}
-
-
-  
+} 

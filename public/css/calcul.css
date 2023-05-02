@@ -90,3 +90,14 @@ a{
 .sub{
   margin-top: 10px;
 }
+
+.stats{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.absences, .ouverture{
+  margin-top: 20px;
+  width: 80%;
+}

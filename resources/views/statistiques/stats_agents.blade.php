@@ -3,26 +3,7 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <link rel="stylesheet" href="{{asset('css/calcul.css')}}">
 <div class="stats">
-  <h1>Statistiques</h1>
-  <div class="tab list_agents">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Agent</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        @forelse ($agents as $a)
-        <tr>
-          <td><a href="/stats/{{$a["id"]}}">{{$a["name"]}}</a></td>
-          <td>{{$a["email"]}}</td>
-        </tr>
-        @empty      
-        @endforelse
-      </tbody>
-    </table>
-  </div>
+  <h1>Statistiques d'agent: {{$agent->name}}</h1>
   <div class="absences"></div>
   <div class="ouverture"></div>
 </div>
@@ -40,9 +21,9 @@
       },
       xAxis: {
         type: 'category',
-        categories: @json(array_column($abs,0)),
+        categories: @json(array_column($data,0)),
         labels: {
-          rotation: -40,
+          rotation: -50,
           style: {
             fontSize: '13px'
           }
@@ -58,10 +39,11 @@
         enabled: false
       },
       tooltip: {
-        pointFormat: "nombre d'absences   : <b>{point.y}</b>"
+        pointFormat: "nombres d'absences: <b>{point.y}</b>"
       },
       series: [{
-        data: @json(array_column($abs,1))
+        name: 'Absences',
+        data: @json(array_column($data,1))
       }],
       scrollbar: {
         enabled: true
