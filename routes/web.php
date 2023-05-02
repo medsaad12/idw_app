@@ -10,6 +10,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\CalculController;
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\TableauController;
 use App\Http\Controllers\PresenceController;
@@ -131,7 +132,9 @@ Route::get('/tableau/{id}',function ($id) {
 
 Route::get('/production',[ProductionController::class,'index']);
 
-
+Route::get('/calcul',[CalculController::class,"get_agents"]);
+Route::get('/calcul/{id}',[CalculController::class,"get_agent_data"]);
+Route::post('/calcul/save',[CalculController::class,'save']);
 
 
 
