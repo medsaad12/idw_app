@@ -8,6 +8,7 @@ use App\Models\TableauRow;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\GroupController;
@@ -138,4 +139,5 @@ Route::get('/calcul/{id}',[CalculController::class,"get_agent_data"]);
 Route::post('/calcul/save',[CalculController::class,'save']);
 
 
-
+Route::get('/stat',[StatController::class,'get_chart_data']);
+Route::get('/stats/{id}',[StatController::class,'get_agent_stats']);
