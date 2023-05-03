@@ -45,6 +45,10 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Remplir formulaires</span>
         </a>
+        <a href="/mail" class="link">
+          <img width="20px" height="20px" src="{{ asset('svgs/mail.svg') }}" class="icons">
+          <span>Email</span>
+        </a>
         <a href="/conversation" class="link">
           <img height="34" width="34" src="{{ asset('svgs/conversation.png') }}" class="icons">
           <span>Conversations</span>
@@ -224,6 +228,13 @@
         <a href="/production" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/production.svg') }}" class="icons">
           <span>Production</span>
+        </a>
+        @endcan
+
+        @can('G-mails')
+        <a href="/mail" class="link">
+          <img width="20px" height="20px" src="{{ asset('svgs/mail.svg') }}" class="icons">
+          <span>Email</span>
         </a>
         @endcan
 

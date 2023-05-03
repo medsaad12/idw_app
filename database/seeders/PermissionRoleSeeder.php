@@ -16,7 +16,7 @@ class PermissionRoleSeeder extends Seeder
     public function run()
     {
         $admin = Role::find(1);
-        $admin->givePermissionTo('chat','G-utilisateurs','G-groupes','G-conversations','G-formulaires','remplissage-fromulaire');
+        $admin->givePermissionTo('chat','G-utilisateurs','G-groupes','G-conversations','G-formulaires','remplissage-fromulaire','G-mails');
         $rh = Role::find(2);
         $rh->givePermissionTo('chat','G-présence','G-entretiens','G-formations','calcule','statistique-agent','G-notifications','G-calendrier');
         $ce = Role::find(3);

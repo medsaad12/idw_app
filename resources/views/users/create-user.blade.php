@@ -32,12 +32,10 @@
           <h3>Permissions</h3>
           <div class="permissions">
             @foreach ($permissions as $permission)
-                @if ($permission->name !== 'calcule')
                 <div class="perm">
                   <input type="checkbox" name="permissions[]" value="{{$permission->name}}" onclick=toggle_roles()>
                   <span>{{$permission->name}}</span>
                   </div>
-                @endif
             @endforeach
             <input type="button" value="Clear" class="clear" onclick=clear_checkbox()>
           </div>
