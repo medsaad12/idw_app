@@ -39,7 +39,6 @@
       @endif
       <form class="msg_input" action="/send" method="POST" enctype="multipart/form-data">
         @csrf 
-        <div class="file_preview"></div>
         <div class="inpppp">
           <input type="text" value="" name="message" id="message" class="message">
         <input type="hidden" name="receiver" id="receiver" value="{{$receiver->id}}">

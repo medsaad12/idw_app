@@ -40,17 +40,20 @@
       @endif
       <form class="msg_input" action="/sendtogroup" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="text" class="message" name="message">
-        <input type="hidden" name="receivers_group" id="groupId" value="{{$group->id}}">
-        <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
-        <label for="file_input">
-          <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
-          <input type="file" name="file" id="file_input" class="hidden_inps">
-        </label>
-        <label for="form_submit">
-          <img src="{{ asset('svgs/send.svg') }}" class="submit">
-          <input type="submit" id="form_submit" class="hidden_inps">
-        </label>
+        <div class="file_preview"></div>
+        <div class="inpppp">
+          <input type="text" class="message" name="message">
+          <input type="hidden" name="receivers_group" id="groupId" value="{{$group->id}}">
+          <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
+          <label for="file_input">
+            <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
+            <input type="file" name="file" id="file_input" class="hidden_inps">
+          </label>
+          <label for="form_submit">
+            <img src="{{ asset('svgs/send.svg') }}" class="submit">
+            <input type="submit" id="form_submit" class="hidden_inps">
+          </label>
+        </div>
       </form>
     </div>
   </div>
