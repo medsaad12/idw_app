@@ -3,6 +3,8 @@
 @vite('resources/js/room.js')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/chat.css')}}">
+<script src="{{asset('js/chat_files.js')}}"></script>
+
 <div class="chat">
     <div class="people">
       @can('G-groupes')
@@ -40,17 +42,20 @@
       @endif
       <form class="msg_input" action="/sendtogroup" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="text" class="message" name="message">
-        <input type="hidden" name="receivers_group" id="groupId" value="{{$group->id}}">
-        <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
-        <label for="file_input">
-          <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
-          <input type="file" name="file" id="file_input" class="hidden_inps">
-        </label>
-        <label for="form_submit">
-          <img src="{{ asset('svgs/send.svg') }}" class="submit">
-          <input type="submit" id="form_submit" class="hidden_inps">
-        </label>
+        <div class="file_preview"></div>
+        <div class="inpppp">
+          <input type="text" class="message" name="message">
+          <input type="hidden" name="receivers_group" id="groupId" value="{{$group->id}}">
+          <input type="hidden" name="authId" id="authId" value="{{Auth::user()->id}}">
+          <label for="file_input">
+            <img src="{{ asset('svgs/paperclip.svg') }}" class="file">
+            <input type="file" name="file" id="file_input" class="fileeee hidden_inps" onchange="show_files(this)">
+          </label>
+          <label for="form_submit">
+            <img src="{{ asset('svgs/send.svg') }}" class="submit">
+            <input type="submit" id="form_submit" class="hidden_inps">
+          </label>
+        </div>
       </form>
     </div>
   </div>

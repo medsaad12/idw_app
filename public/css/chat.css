@@ -1,129 +1,133 @@
 .msg_input{
-      display: flex;
-      align-items: center;
-      height: 5%;
-      margin: 10px;
-    }
+  display: flex;
+  flex-direction: column;
+  height: 5%;
+  margin: 10px;
+}
 
-    .convo_person{
-      border-bottom: 2px solid black;
-    }
+.person{
+  margin: 10px 0px 10px 0px;   
+}
 
-    .person, .convo_person{
-      height: 12%;
-      /* background-color: beige; */  
-      display: flex;
-      align-items: center;
-    }
+.person, .convo_person{
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 12%;
+  display: flex;
+  align-items: center;
+}
+.convo_person{
+  border-radius: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 2px solid black;
+}
 
-    label img{
-      width: 30px !important;
-      transform: rotate(40deg);
-      cursor: pointer;
-      font-size: medium;
-    }
+label img{
+  width: 30px !important;
+  transform: rotate(40deg);
+  cursor: pointer;
+  font-size: medium;
+}
 
-    .message{
-      width: 90%;
-      height: 100%;
-      padding: 3px;
-      border: 2px solid black;
-      border-radius: 5px;
-    }
+.message{
+  width: 90%;
+  padding: 3px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
 
-    .hidden_inps{
-      display: none;
-    }
+.hidden_inps{
+  display: none;
+}
 
-    .convo_person img{
-      width: 7% !important;
-    }
+.convo_person img{
+  width: 7% !important;
+}
 
-    .person:hover{
-      background-color: lightgray;
-    }
+.person:hover{
+  background-color: lightgray;
+}
 
-    .msg_sent{
-      color: white;
-      background-color: #564aff;
-      /* min-height: 10%; */
-      max-width: 60%;
-      padding: 10px;
-      margin-left: auto;      
-      border-radius: 5px 5px 0px 5px;
-      margin-top: 15px;
-    }
-    
-    .msg_rec{
-      padding: 10px;
-      border-radius: 5px 5px 5px 0px;
-      background-color: grey;
-      color: white;
-      /* min-height: 20px; */
-      max-width: 60%;
-      margin-right: auto;
-      margin-top: 15px;
-    }
+.msg_sent{
+  color: white;
+  background-color: #564aff;
+  /* min-height: 10%; */
+  max-width: 60%;
+  padding: 10px;
+  margin-left: auto;      
+  border-radius: 5px 5px 0px 5px;
+  margin-top: 15px;
+}
 
-    .person_content{
-      display: flex;
-      flex-direction: column;
-    }
+.msg_rec{
+  padding: 10px;
+  border-radius: 5px 5px 5px 0px;
+  background-color: grey;
+  color: white;
+  max-width: 60%;
+  margin-right: auto;
+  margin-top: 15px;
+}
 
-    .people img, .convo_person img{
-      width: 10%;
-      margin: 0px 15px 0px 10px !important;
-    }
+.person_content{
+  display: flex;
+  flex-direction: column;
+}
 
-    .messages{
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      max-width: 100%;
-      overflow-y: scroll;
-      margin: 0px 5px 3px 5px;
-    }
+.people img, .convo_person img{
+  width: 10%;
+  margin: 0px 15px 0px 10px !important;
+}
 
-    .messages::-webkit-scrollbar{
-      width: 3px;
-    }
+.messages{
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+  max-width: 100%;
+  overflow-y: scroll;
+  margin: 0px 5px 3px 5px;
+}
 
-    .messages::-webkit-scrollbar-thumb{
-      background-color: black;
-    }
+.messages::-webkit-scrollbar{
+  width: 3px;
+}
 
-    .chat{
-      display: flex;
-      width: 100%;
-      height: 100%;
-      /* background-color: bisque; */
-    }
+.messages::-webkit-scrollbar-thumb{
+  background-color: black;
+}
 
-    .people{
-      /* background-color: aquamarine; */
-      width: 23%;
-      height: 100%;
-      max-width: 100%;
-      overflow: scroll;
-      border-right: 2px solid black;
-    }
+.chat{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
 
-    .people::-webkit-scrollbar{
-      width: 3px;
-    }
+.people{
+  width: 25%;
+  height: 100%;
+  max-width: 100%;
+  overflow: scroll;
+  margin-left: 2px;
+}
 
-    .people::-webkit-scrollbar-thumb{
-      background-color: black;
-    }
+.people::-webkit-scrollbar{
+  width: 3px;
+}
 
-    .convo{
-      display: flex;
-      flex-direction: column;
-      /* background-color: blueviolet; */
-      width: 82%;
-      height: 100%;
-    }
- .G-groupes{
+.people::-webkit-scrollbar-thumb{
+  background-color: black;
+}
+
+.convo{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+}
+.G-groupes{
   margin-top: 10px;
   cursor: pointer;
   background-color: #0e00d8b4;
@@ -133,8 +137,27 @@
   border-radius: 10px;
   font-size: 13px;
   font-family: sans-serif;
- }
- .G-groupes:hover{
-  border-radius: 5px;
+}
+.G-groupes:hover{
+  border-radius: 5px; 
+}
 
- }
+.file_preview{
+  justify-content: space-between;
+  width: 90%;
+  height: 100px;
+  background: darkgray;
+  padding: 5px;
+  border-radius: 5px 5px 0px 0px;
+  display: none;
+}
+
+.file_preview button{
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.inpppp{
+  width: 100%;
+}

@@ -230,11 +230,16 @@
         @endif
         <a href="/notifications" style="position:relative"class="link">
           <img src="{{ asset('svgs/bell.svg') }}" class="icons">
-          <span>Notification</span><span id="notification">{{count(Auth::user()->notifications->filter(function ($notification) {
+          <span>Notification</span>
+          @if (count(Auth::user()->notifications->filter(function ($notification) {
             return $notification->read_at === null;
-        })) == 0 ? " " : count(Auth::user()->notifications->filter(function ($notification) {
+        })) == 0)
+              
+          @else
+          <span id="notification">{{ count(Auth::user()->notifications->filter(function ($notification) {
             return $notification->read_at === null;
         })) }}</span>
+          @endif
         </a>
         <a onclick="logout()" class="link">
           <img src="{{ asset('svgs/box-arrow-left.svg') }}" class="icons">

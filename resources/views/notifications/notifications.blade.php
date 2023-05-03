@@ -6,7 +6,7 @@
   <a href="/notifications/create"><button class="btn btn-primary m-2">Nouveau notification</button></a>
 @endcan
   <ul>
-    @foreach (Auth::user()->notifications as $notification)
+    @forelse (Auth::user()->notifications as $notification)
         @if ($notification->read_at == null)
         <div class="alert alert-primary m-5" role="alert">
           <h4 class="alert-heading">{{$notification->data[0]}} </h4>
@@ -17,6 +17,8 @@
           </form>
         </div>
         @endif
-    @endforeach
+    @empty
+    No Notifications Yet
+    @endforelse
   </ul>
 @endsection

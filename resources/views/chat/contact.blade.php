@@ -13,7 +13,7 @@
           </div>
         </div>
       </a>
-      <hr>
+      
       @endif
       @empty
         No User Yet  
