@@ -13,6 +13,11 @@
         <input type="email" value="{{$user->email}}" placeholder="Email" name="email">
         <input type="password" placeholder="Password" name="password">
       </div>
+      @if (session('err'))
+        <div class="alert alert-danger text-center">
+          {{strtoupper(session('err'))}}
+        </div>
+      @endif
       <p>Vous pouvez donner à l'utilisateur un rôle ou des permissions , pas les deux !!!!</p>
       <div class="form_three">
         <div class="roles"> 
