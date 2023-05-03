@@ -45,7 +45,7 @@
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Remplir formulaires</span>
         </a>
-        <a href="/mail" class="link">
+        <a href="/mail/create" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/mail.svg') }}" class="icons">
           <span>Email</span>
         </a>
@@ -232,7 +232,7 @@
         @endcan
 
         @can('G-mails')
-        <a href="/mail" class="link">
+        <a href="/mail/create" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/mail.svg') }}" class="icons">
           <span>Email</span>
         </a>
