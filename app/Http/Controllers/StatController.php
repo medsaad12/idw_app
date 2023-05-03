@@ -72,7 +72,7 @@ class StatController extends Controller{
     }
     $data2 = array();
     foreach($ouv_dates as $key => $date){
-      $data2[] = array($date->date, $ouv_count[$key]->first()->a);
+      $data2[] = array($date->date, intval($ouv_count[$key]->first()->a));
     }
     $agent = User::find($id);
     return view('/statistiques/stats_agents',['data'=>$data1, 'ouvs'=>$data2, 'agent'=> $agent]);
