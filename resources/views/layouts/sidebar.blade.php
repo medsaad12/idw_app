@@ -33,11 +33,11 @@
           <span>Utilisateurs</span>
         </a>
         <a href="/forms/create" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
+        <img src="{{ asset('svgs/file-earmark-plus.svg') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
+          <img src="{{ asset('svgs/ui-checks.svg') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         <a href="/forms" class="link">
@@ -49,7 +49,7 @@
           <span>Email</span>
         </a>
         <a href="/conversation" class="link">
-          <img height="34" width="34" src="{{ asset('svgs/conversation.png') }}" class="icons">
+          <img swidth="20" height="20" src="{{ asset('svgs/chat-svgrepo-com.svg') }}" class="icons">
           <span>Conversations</span>
         </a>
         @endrole
@@ -150,8 +150,7 @@
        
         @if (Auth::user()->hasRole(['ADMIN']) == false )
        @can('G-conversations')
-         <a href="/conversation" class="link">
-          <img height="34" width="34" src="{{asset('svgs/conversation.png')}}" alt="">
+       <img swidth="20" height="20" src="{{ asset('svgs/chat-svgrepo-com.svg') }}" class="icons">
           <span>Conversations</span>
         </a>
         @endcan
@@ -160,11 +159,11 @@
         @if (Auth::user()->hasRole(['ADMIN']) == false )
         @can('G-formulaires')
         <a href="/forms/create" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
+        <img src="{{ asset('svgs/file-earmark-plus.svg') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
+          <img src="{{ asset('svgs/ui-checks.svg') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         @endcan
@@ -272,9 +271,10 @@
         })) == 0)
               
           @else
-          <span id="notification">{{ count(Auth::user()->notifications->filter(function ($notification) {
+          <span id="notification" class="badge ">{{ count(Auth::user()->notifications->filter(function ($notification) {
             return $notification->read_at === null;
         })) }}</span>
+        
           @endif
         </a>
         <a onclick="logout()" class="link">

@@ -34,6 +34,7 @@ body {
     background: #3861CD;
     overflow-y: auto;
     transition: all 0.3s ease-in-out;
+    font-family: "Inter-Regular","Arial",sans-serif,"ui-sans-serif","system-ui","-apple-system"
 }
 
 .sidebar::-webkit-scrollbar {
@@ -84,10 +85,15 @@ a:visited {
     text-decoration: none;
 }
 
-#notification{
-    background-color: #003cd3;
-    border-radius: 50%;
-    color: black;
+#notification {
     position: absolute;
-    right: 25px ;
+    top: 10px;
+    right: 10px;
+    
+}
+
+.badge {
+    border-radius: 50%;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;background-color: #2E49A3;
 }
