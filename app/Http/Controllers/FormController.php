@@ -101,7 +101,7 @@ class FormController extends Controller
     public function update(Request $request, Form $form)
     {
         //
-    }
+    } 
 
     /**
      * Remove the specified resource from storage.
@@ -111,7 +111,8 @@ class FormController extends Controller
      */
     public function destroy(Form $form)
     {
-        //
+        $form->delete();
+        return redirect('/forms/sub');
     }
 
     public function submit(Request $request)

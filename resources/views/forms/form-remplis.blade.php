@@ -6,6 +6,8 @@
   <script src="{{ asset('js/create-form.js') }}"></script>
     <div class="formulaire">
       <h3>Formulaire : {{$form->name}}</h3> 
+      <form action="/forms/{{$form->id}}" method="post">@method('delete')@csrf <button type="submit"><img src="{{asset('svgs/trash.svg')}}" ></button> </form>
+
       <div class="navigation">
         {{$submissions->links('vendor.pagination.simple-default')}}
       </div>

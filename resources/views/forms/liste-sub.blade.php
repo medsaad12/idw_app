@@ -10,6 +10,7 @@
         <h4>{{$form->name}}</h4>
         <small>Soumissions : {{count($form->formSubmissions)}}</small>
       </a>
+
       @empty
           No form yet
       @endforelse

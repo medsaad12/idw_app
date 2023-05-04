@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Calendrier;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\NotificationRh;
 
 class CalendrierController extends Controller
 {
@@ -26,6 +29,11 @@ class CalendrierController extends Controller
         if($request->mod == 'hehe'){
             $jour->Ferier = $request->jourf;
             $jour->Date = $request->date;
+            $notification = "Un jour fériés ".$request->jourf. " jour : ".$request->date ;
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        foreach ($users as $user) {
+            $user->notify(new NotificationRh($notification));
+        }
             $jour->save();
             return redirect('/calendrier');
         }
@@ -36,6 +44,11 @@ class CalendrierController extends Controller
         $jour = new Calendrier;
         $jour->Ferier = $request->jourf;
         $jour->Date = $request->date;
+        $notification = "Un jour fériés ".$request->jourf. " jour : ".$request->date  ;
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        foreach ($users as $user) {
+            $user->notify(new NotificationRh($notification));
+        }
         $jour->save();
         return redirect('/calendrier');
     }
