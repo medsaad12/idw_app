@@ -13,6 +13,7 @@ class AdminEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $mail ;
+
     /**
      * Create a new message instance.
      *
@@ -21,6 +22,7 @@ class AdminEmail extends Mailable
     public function __construct($mail)
     {
         $this->mail = $mail ;
+
     }
 
     /**
@@ -31,7 +33,7 @@ class AdminEmail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Admin Email',
+            subject: 'Idw-Groupe Email' ,
         );
     }
 
@@ -44,10 +46,11 @@ class AdminEmail extends Mailable
     {
         return new Content(
             view: 'mails.AdminEmail',
+          
         );
     }
     
-
+  
     /**
      * Get the attachments for the message.
      *

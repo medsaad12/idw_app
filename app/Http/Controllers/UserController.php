@@ -54,6 +54,7 @@ class UserController extends Controller
         if ($validator->fails()) {
             return back()->with('err',"Quelque chose est incorrecte, veuillez réessayer");
         }
+    
         $user = new User ;
         $user->name = $request->name ;
         $user->email = $request->email ;
@@ -68,6 +69,7 @@ class UserController extends Controller
         }
         }
         return redirect('/users');
+    
 
     }
 
@@ -114,7 +116,7 @@ class UserController extends Controller
         if ($validator->fails()) {
             return back()->with('err',"Quelque chose est incorrecte, veuillez réessayer");
         }
-        
+       
         $user->name = $request->name ;
         $user->email = $request->email ;
         if ($request->password !== null ) {
@@ -136,7 +138,9 @@ class UserController extends Controller
             $user->permissions()->detach();
         }
         return redirect('/users');
+
     }
+
 
     /**
      * Remove the specified resource from storage.

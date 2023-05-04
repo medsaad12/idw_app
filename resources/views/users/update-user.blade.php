@@ -16,7 +16,7 @@
       <button type="button" id="button" class="btn btn-secondary" onclick="passwordd()">Changer Mot de passe</button>
       @if (session('err'))
       <div >
-        <h4 class="text-danger">quelque chose est incorrect ressayez !</h4>
+        <h4 class="text-danger">{{session('err')}}</h4>
       </div>
       @endif
       <p>Vous pouvez donner à l'utilisateur un rôle ou des permissions , pas les deux !!!!</p>
