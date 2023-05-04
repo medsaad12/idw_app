@@ -11,8 +11,14 @@
       </div>
       <div class="form_two">
         <input type="email" value="{{$user->email}}" placeholder="Email" name="email">
-        <input type="password" placeholder="Password" name="password">
+        <input id="password" type="password" placeholder="Password" name="password" >
       </div>
+      <button type="button" id="button" class="btn btn-secondary" onclick="passwordd()">Changer Mot de passe</button>
+      @if (session('err'))
+      <div >
+        <h4 class="text-danger">quelque chose est incorrect ressayez !</h4>
+      </div>
+      @endif
       <p>Vous pouvez donner à l'utilisateur un rôle ou des permissions , pas les deux !!!!</p>
       <div class="form_three">
         <div class="roles"> 
@@ -20,7 +26,7 @@
           <div class="rolees">
             @foreach ($roles as $role)
                 <div class="role">
-                <input type="radio" @if($user->haveRole($role->name)) checked @endif name="role" value="{{$role->id}}" onclick=toggle_perms()>
+                <input type="radio" @if($user->haveRole($role->name)) checked @endif name="role" value="{{$role->id}}" >
                 <span>{{$role->name}}</span>
              </div>
             @endforeach 
@@ -32,7 +38,7 @@
           <div class="permissions">
             @foreach ($permissions as $permission)
                 <div class="perm">
-                <input type="checkbox"  @if($user->havePermission($permission->name)) checked @endif  name="permissions[]" value="{{$permission->name}}" onclick=toggle_roles()>
+                <input type="checkbox"  @if($user->havePermission($permission->name)) checked @endif  name="permissions[]" value="{{$permission->name}}" >
                 <span>{{$permission->name}}</span>
             </div>
             @endforeach

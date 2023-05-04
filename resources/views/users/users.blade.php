@@ -11,7 +11,8 @@
           <tr>
             <th>Nom et Prénom</th>
             <th>Email</th>
-            <th>Role Ou Permissions</th>
+            <th>Role </th>
+            <th>Permissions</th>
             <th></th>
             <th></th>
           </tr>
@@ -22,7 +23,8 @@
             <tr>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
-            <td>{{count($user->getRoleNames()) > 0 ? $user->getRoleNames() : $user->getPermissionNames() }}</td>
+            <td>@if(count($user->getRoleNames()) > 0) {{$user->getRoleNames()}} @endif</td>
+            <td>@if(count($user->getPermissionNames()) > 0) {{$user->getPermissionNames()}} @endif</td>
             <td><a href="/users/{{$user->id}}/edit"><input type="button" class="mod crud_btn" value="Modifier"></a></td>
             <td><form method="post" action="/users/{{$user->id}}">@csrf @method('delete')<input type="submit" class="del crud_btn" value="Supprimer"></form></td>
           </tr> 

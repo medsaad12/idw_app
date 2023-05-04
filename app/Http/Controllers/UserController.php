@@ -52,7 +52,7 @@ class UserController extends Controller
             'password' => ['required','min:8']
         ]); 
         if ($validator->fails()) {
-            return back();
+            return back()->with('err',"Quelque chose est incorrecte, veuillez réessayer");
         }
         $user = new User ;
         $user->name = $request->name ;
@@ -61,13 +61,14 @@ class UserController extends Controller
         $user->save();   
         if ($request->has('role')) {
             $user->assignRole($request->role) ;
-            return redirect('/users');
-        } else {
+        } 
+        if($request->has('permissions')){
             foreach ($request->permissions as $permission){
             $user->givePermissionTo($permission) ;
         }
-            return redirect('/users');
         }
+        return redirect('/users');
+
     }
 
     /**
@@ -109,25 +110,32 @@ class UserController extends Controller
                 'email',
                 'max:255',
             ],
-            'password' => ['required','min:8']
         ]); 
         if ($validator->fails()) {
-            return back();
+            return back()->with('err',"Quelque chose est incorrecte, veuillez réessayer");
         }
         
         $user->name = $request->name ;
         $user->email = $request->email ;
-        $user->password = Hash::make($request['password']) ;
+        if ($request->password !== null ) {
+            if (strlen($request->password) >= 8 ){
+                $user->password = Hash::make($request['password']) ;
+            } else {
+                return back()->with('err',"Quelque chose est incorrecte, veuillez réessayer");
+            } 
+        }
         $user->save();   
         if ($request->has('role')) {
             $user->assignRole($request->role) ;
-            return redirect('/users');
-        } else {
+        } 
+        if($request->has('permissions')){
             foreach ($request->permissions as $permission){
             $user->givePermissionTo($permission) ;
         }
-            return redirect('/users');
+        }else{
+            $user->permissions()->detach();
         }
+        return redirect('/users');
     }
 
     /**

@@ -14,6 +14,11 @@
         <input type="email" placeholder="Email" name="email">
         <input type="password" placeholder="Password" name="password">
       </div>
+      @if (session('err'))
+      <div >
+        <h4 class="text-danger">quelque chose est incorrect ressayez !</h4>
+      </div>
+      @endif
       <p>Vous pouvez donner à l'utilisateur un rôle ou des permissions , pas les deux !!!!</p>
       <div class="form_three">
         <div class="roles"> 
@@ -21,7 +26,7 @@
           <div class="rolees">
             @foreach ($roles as $role)
                 <div class="role">
-                <input type="radio" name="role" value="{{$role->id}}" onclick=toggle_perms()>
+                <input type="radio" name="role" value="{{$role->id}}">
                 <span>{{$role->name}}</span>
             </div>
             @endforeach
@@ -33,7 +38,7 @@
           <div class="permissions">
             @foreach ($permissions as $permission)
                 <div class="perm">
-                  <input type="checkbox" name="permissions[]" value="{{$permission->name}}" onclick=toggle_roles()>
+                  <input type="checkbox" name="permissions[]" value="{{$permission->name}}">
                   <span>{{$permission->name}}</span>
                   </div>
             @endforeach

@@ -18,7 +18,6 @@
           <img src="{{ asset('svgs/person.svg') }}" class="icons">
           <span>Profile</span>
         </a>
-        @if (Auth::user()->hasRole(['ADMIN', 'RH' ,'CE' ,'AGENT']))
         @role('ADMIN')
         <a href="{{ url('chat') }}" class="link">
           <img src="{{ asset('svgs/chat-left-dots.svg') }}" class="icons">
@@ -125,8 +124,8 @@
         </a>
         
         @endrole
-        @else
-
+  
+        @if (Auth::user()->hasRole(['ADMIN', 'RH' ,'CE' ,'AGENT']) == false )
         @can('chat')
         <a href="{{ url('chat') }}" class="link">
           <img src="{{ asset('svgs/chat-left-dots.svg') }}" class="icons">
@@ -137,22 +136,28 @@
           <span>Groupes</span>
         </a>
         @endcan
-
-        @can('G-utilisateurs')
+        @endif
+        
+        @if (Auth::user()->hasRole(['ADMIN']) == false )
+       @can('G-utilisateurs')
         <a href="{{ url('users') }}" class="link">
           <img width="20" height="38" src="{{ asset('svgs/management.png') }}"
             class="icons">
           <span>Utilisateurs</span>
         </a>
         @endcan
-
-        @can('G-conversatio')
+        @endif
+       
+        @if (Auth::user()->hasRole(['ADMIN']) == false )
+       @can('G-conversations')
          <a href="/conversation" class="link">
           <img height="34" width="34" src="{{asset('svgs/conversation.png')}}" alt="">
           <span>Conversations</span>
         </a>
         @endcan
-
+        @endif
+        
+        @if (Auth::user()->hasRole(['ADMIN']) == false )
         @can('G-formulaires')
         <a href="/forms/create" class="link">
           <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
@@ -163,56 +168,72 @@
           <span>Formulaires remplis</span>
         </a>
         @endcan
-
+        @endif
+       
+        @if (Auth::user()->hasRole(['AGENT','ADMIN']) == false )
         @can('remplissage-fromulaire')
         <a href="/forms" class="link">
           <img src="{{ asset('svgs/pencil-square.svg') }}" class="icons">
           <span>Remplir formulaires</span>
         </a>
         @endcan
-
+        @endif
+        
+        @if (Auth::user()->hasRole(['RH']) == false )
         @can('G-présence')
         <a href="/presence" class="link">
           <img src="{{ asset('svgs/person-check.svg') }}" class="icons">
           <span>Tableau de présence</span>
         </a>
         @endcan
+        @endif
 
+        @if (Auth::user()->hasRole(['RH']) == false )
         @can('G-entretiens')
         <a href="/entretiens" class="link">
           <img src="{{ asset('svgs/person-workspace.svg') }}" class="icons">
           <span>Gestion des entretiens</span>
         </a>
         @endcan
-
+        @endif
+ 
+        @if (Auth::user()->hasRole(['RH']) == false )
         @can('G-formations')
         <a href="/formations" class="link">
           <img src="{{ asset('svgs/mortarboard.svg') }}" class="icons">
           <span>Gestion de formations</span>
         </a>
         @endcan
+        @endif
 
+        @if (Auth::user()->hasRole(['RH']) == false )
         @can('calcule')
         <a href="{{ url('calcul') }}" class="link">
           <img src="{{ asset('svgs/calculator.svg') }}" class="icons">
           <span>Calcule Salaire</span>
         </a>
         @endcan
-
+        @endif
+ 
+        @if (Auth::user()->hasRole(['RH']) == false )
         @can('statistique-agent')
         <a href="{{ url('stat') }}" class="link">
           <img src="{{ asset('svgs/graph-up.svg') }}" class="icons">
           <span>Statistiques</span>
         </a>
         @endcan
+        @endif
 
-        @can('G-codes')
-        <a href="{{ url('codes') }}" class="link">
-          <img src="{{ asset('svgs/people.svg') }}" class="icons">
-          <span>Codes</span>
+        @if (Auth::user()->hasRole(['RH']) == false )
+        @can('G-calendrier',)
+        <a href="{{ url('calendrier') }}" class="link">
+          <img src="{{ asset('svgs/calendar.svg') }}" class="icons">
+          <span>Calendrier fériés</span>
         </a>
         @endcan
+        @endif
 
+        @if (Auth::user()->hasRole(['CE']) == false )
         @can('Tableau-agents')
         <a href="/tableaux" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/table.svg') }}" class="icons">
@@ -223,22 +244,26 @@
           <span>Equipes</span>
         </a>
         @endcan
+        @endif
 
+        @if (Auth::user()->hasRole(['CE']) == false )
         @can('Tableau-RDV')
         <a href="/production" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/production.svg') }}" class="icons">
           <span>Production</span>
         </a>
         @endcan
+        @endif
 
+        @if (Auth::user()->hasRole(['ADMIN']) == false )
         @can('G-mails')
         <a href="/mail/create" class="link">
           <img width="20px" height="20px" src="{{ asset('svgs/mail.svg') }}" class="icons">
           <span>Email</span>
         </a>
         @endcan
-
         @endif
+
         <a href="/notifications" style="position:relative"class="link">
           <img src="{{ asset('svgs/bell.svg') }}" class="icons">
           <span>Notification</span>

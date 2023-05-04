@@ -29,7 +29,6 @@ class PermissionSeeder extends Seeder
             ["name"=>"G-formations"],
             ["name"=>"calcule"],
             ["name"=>"statistique-agent"],
-            ["name"=>"G-codes"],
             ["name"=>"Tableau-agents"],
             ["name"=>"Tableau-RDV"],
             ["name"=>"G-notifications"],

@@ -1,3 +1,4 @@
+
 function clear_checkbox(){
     let roles = document.querySelectorAll('input[type="checkbox"]')
     roles.forEach(a => a.checked = false)
@@ -28,4 +29,10 @@ function clear_checkbox(){
     })
     if(checked) roles.forEach(a => a.disabled = true)
     else roles.forEach(a => a.disabled = false)
+  }
+  function passwordd(){
+    let input = document.getElementById('password') ;
+    input.style.display = "flex" ;
+    let button = document.getElementById('button') ;
+    button.style.display = "none" ;
   }
