@@ -28,7 +28,7 @@
           <span>Groupes</span>
         </a>
         <a href="{{ url('users') }}" class="link">
-          <img width="20" height="38" src="{{ asset('svgs/management.png') }}"
+          <img style="margin-bottom: 5px" width="19" height="30" src="{{ asset('svgs/management.png') }}"
             class="icons">
           <span>Utilisateurs</span>
         </a>
