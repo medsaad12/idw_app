@@ -88,7 +88,7 @@ class UserController extends Controller
                 return redirect('/users');
             } 
         }
-        else return back()->with('err' ,  "Adresse email n'existe pas !") ;        
+        else return back()->with('err' ,  "Adresse email n'est pas correcte !") ;        
     }
 
     /**
@@ -168,7 +168,7 @@ class UserController extends Controller
                 return redirect('/users');
             }
         }
-        else return back()->with('err' ,  "Adresse email n'existe pas !") ;
+        else return back()->with('err' ,  "Adresse email n'est pas correcte !") ;
     }
 
     /**

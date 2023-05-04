@@ -42,9 +42,7 @@
             </div>
             @endforeach
           </div>
-          <input type="button" value="Clear" class="clear" onclick=clear_checkbox()>
-        </div>
-        
+        </div>   
       </div>
       <input type="submit" class="create" value="Save">
     </form>

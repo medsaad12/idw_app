@@ -29,16 +29,16 @@
           <span>Groupes</span>
         </a>
         <a href="{{ url('users') }}" class="link">
-          <img width="20" height="38" src="{{ asset('svgs/management.png') }}"
+          <img src="{{ asset('svgs/table.svg') }}"
             class="icons">
           <span>Utilisateurs</span>
         </a>
         <a href="/forms/create" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/formulaire.png') }}" class="icons">
+          <img src="{{ asset('svgs/file-earmark-plus.svg') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img height="30" width="31" src="{{ asset('svgs/remplis.png') }}" class="icons">
+          <img src="{{ asset('svgs/ui-checks.svg') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         <a href="/forms" class="link">
@@ -46,7 +46,7 @@
           <span>Remplir formulaires</span>
         </a>
         <a href="/conversation" class="link">
-          <img height="34" width="34" src="{{ asset('svgs/conversation.png') }}" class="icons">
+          <img swidth="20" height="20" src="{{ asset('svgs/chat-svgrepo-com.svg') }}" class="icons">
           <span>Conversations</span>
         </a>
         @endrole
@@ -151,18 +151,18 @@
 
         @can('G-conversatio')
          <a href="/conversation" class="link">
-          <img height="34" width="34" src="{{asset('svgs/conversation.png')}}" alt="">
+          <img width="20" height="20" src="{{asset('svgs/chat-svgrepo-com.svg')}}" alt="">
           <span>Conversations</span>
         </a>
         @endcan
 
         @can('G-formulaires')
         <a href="/forms/create" class="link">
-          <img src="{{ asset('svgs/formulaire.png') }}" class="icons">
+          <img src="{{ asset('svgs/file-earmark-plus.svg') }}" class="icons">
           <span>Créer formulaire</span>
         </a>
         <a href="/forms/sub" class="link">
-          <img src="{{ asset('svgs/remplis.png') }}" class="icons">
+          <img src="{{ asset('svgs/ui-checks.svg') }}" class="icons">
           <span>Formulaires remplis</span>
         </a>
         @endcan
@@ -215,7 +215,7 @@
           <span>Tableau des Agents</span>
         </a>  
         <a href="/equipes" class="link">
-          <img height="36" width="38" src="{{ asset('svgs/table.png') }}" class="icons">
+          <img height="36" width="38" src="{{ asset('svgs/table.svg') }}" class="icons">
           <span>Equipes</span>
         </a> 
         @endcan
