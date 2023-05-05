@@ -24,7 +24,11 @@ class GroupController extends Controller
             $messages = $randomGroup->messages ;
             return view('chat.groupes',['groupes' => $groupes , 'group' => $randomGroup , "messages"=>$messages]);
         } else {
-            return redirect('/groupes/create');
+            if (Auth::user()->hasRole(['ADMIN'])) {
+                return redirect('/groupes/create');
+            }else{
+                return view('chat.err');
+            }
         }  
     }
 
@@ -121,8 +125,11 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Request $request,Group $group)
     {
-        //
+        $id = $request->segment(2);
+        $group = Group::find($id);
+        $group->delete() ;
+        return back();
     }
 }

@@ -17,6 +17,9 @@
           <img src="{{ asset('svgs/Default_pfp.svg.png') }}">
           <div class="person_content">
             <span>{{strtoupper($groupe->group_name)}}</span>
+      @can('G-groupes')
+      <form class="delete" action="/groupes/{{$groupe->id}}"  method="post">@method('delete')@csrf <button type="submit"><img src="{{asset('svgs/trash.svg')}}" ></button> </form>
+      @endcan
           </div>
         </div>
       </a>

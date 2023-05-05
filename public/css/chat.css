@@ -79,12 +79,25 @@ label img{
 
 .person_content{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+
+}
+.delete{
+  position: absolute;
+  right: 35px;
+  cursor: default;
+}
+.delete img{
+  width: 17px !important;
+  margin: 0 !important;
+  cursor: default;
 }
 
 .people img, .convo_person img{
   width: 10%;
-  margin: 0px 15px 0px 10px !important;
+  margin: 0px 15px 0px 10px;
 }
 
 .messages{
