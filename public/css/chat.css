@@ -7,9 +7,15 @@
 
 .person{
   margin: 10px 0px 10px 0px;   
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 12%;
+  width: 99%;
+  display: flex;
+  align-items: center;
 }
 
-.person, .convo_person{
+.convo_person{
   border-radius: 5px;
   border: 1px solid black;
   height: 12%;
