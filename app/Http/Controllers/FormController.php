@@ -86,9 +86,39 @@ class FormController extends Controller
      * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function edit(Form $form)
+    public function edit(Request $request,Form $form)
     {
-        //
+        $id = $request->segment(3);
+        $sub = FormSubmission::find($id);
+        $form = Form::find($sub->form_id);
+        $fields = FormField::where('form_id' , $sub->form_id)->get();
+        
+        return view('forms.edit-forms',['form' => $form ,'fields' => $fields , 'sub'=>$sub]);
+    }
+    public function updating(Request $request ) 
+    {
+        $form = Form::find($request->formId);
+        $data = $form->formFields ;
+        $array = json_decode($data, true);
+
+        $labels = array_map(function($item ,) {
+            return $item['label'];
+        }, $array);
+
+        foreach ($labels as $value) {
+            $result = [
+                "label" => $value,
+                "reponse" => $request->$value
+            ];
+            $results[] = $result;
+        }
+        $formSubmmission = FormSubmission::find($request->subId) ;
+        $formSubmmission->data = json_encode($results) ;
+        if ($formSubmmission->save()) {
+            return redirect('/forms/sub')->with('succes', 'succes');
+        } else {
+            return redirect('/forms/sub')->with('err', 'err');
+        }
     }
 
     /**
@@ -141,7 +171,7 @@ class FormController extends Controller
         } else {
             return back()->with('err', 'err');
         }
-        
+        // return $request->all();
     }
 
     public function submissions(Request $request)

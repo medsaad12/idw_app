@@ -13,12 +13,22 @@
       </div>
       <div class="formulaire">
         @foreach ($submissions as $sub)
+        <form action="/forms/submissions/{{$sub->id}}/modifier">@csrf <button class="btn btn-success mt-1">Modifier</button></form>
           <p>Formulaire remplis par l'agent : <b>{{App\Models\User::find($sub->agent_id)->name}}</b></p>
           @foreach (json_decode($sub->data) as $rep)
+          @if (is_array($rep->reponse))
+          <div class="question">
+            <h3 class="question_label">{{$rep->label}}</h3>
+            <ul>@foreach ($rep->reponse as $reponse)
+              <li>{{$reponse}} </li>
+            @endforeach</ul>
+          </div>
+          @else
           <div class="question">
             <h3 class="question_label">{{$rep->label}}</h3>
             <span>{{$rep->reponse}}</span>
           </div>
+          @endif
           @endforeach
         @endforeach
       </div> 

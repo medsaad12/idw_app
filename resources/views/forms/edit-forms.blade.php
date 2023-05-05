@@ -15,18 +15,29 @@
     <h4 class="alert-heading">Formulaire envoyee avec succès</h4>
   </div>
   @endif
-  <form class="formulaire" action="/forms/submit" method="POST">
+  <form class="formulaire" action="/forms/submit/update" method="POST">
     @csrf
     <input type="hidden" value="{{$form->id}}" name="formId">
-    @forelse ($fields as $field)
+    <input type="hidden" value="{{$sub->id}}" name="subId">
+    @forelse ($fields as $key=>$field)
     <div class="question">
       <h3 class="question_label">-->{{$field->label}}</h3>
       @if ($field->options == null)
-        <input type={{$field->type}} name="{{$field->label}}" class="text_input" required>
+        <input type="text"
+        value="@foreach(json_decode($sub->data) as $obj)@if($obj->label == $field->label){{$obj->reponse}}@endif @endforeach" 
+        name="{{$field->label}}" class="text_input" required>
       @else
         @foreach (json_decode($field->options) as $option)
           <div class="options">
-            <input type={{$field->type}} value="{{$option}}" name="{{$field->label}}[]" id={{$field->label}} >
+            <input 
+            type={{$field->type}} value="{{$option}}"
+            name="{{$field->label}}[]"
+            id={{$field->label}} 
+            @foreach(json_decode($sub->data) as  $obj)@if($obj->label == $field->label) 
+            @foreach ($obj->reponse as $key =>$opt)
+            @if($obj->reponse[$key] == $option) checked @endif
+            @endforeach  @endif @endforeach
+            >
             <label for={{$field->label}}>{{$option}}</label>
           </div>
         @endforeach
