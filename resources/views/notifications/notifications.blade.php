@@ -18,7 +18,8 @@
         </div>
         @endif
     @empty
-    No Notifications Yet
     @endforelse
+   
+
   </ul>
 @endsection

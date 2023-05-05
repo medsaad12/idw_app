@@ -18,8 +18,8 @@ class NotificationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view("notifications.notifications",['notifications'=>Auth::user()->notifications]);
+    { 
+        return view("notifications.notifications",['notifications'=>Auth::user()->notifications ]);
     }
 
     /**
