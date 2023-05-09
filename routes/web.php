@@ -109,7 +109,7 @@ Route::get('/tableaux/{id}',function ($id) {
     $equipe = Equipe::find($id);
     $tableaux = Tableau::where('equipe_id',$id)->get();
     return view('tableaux.equipe-tableaux',['tableaux'=>$tableaux,'equipe'=>$equipe]);
-});
+})->middleware('auth');
 
 Route::get('/tableaux/{id}/create',function ($id)
 {
@@ -121,33 +121,33 @@ Route::get('/tableaux/{id}/create',function ($id)
     $agents = array_map("myfunction",json_decode($equipe->agents));
     
     return view('tableaux.create-tableau',[ 'equipe' => $equipe , 'agents' => $agents ]);
-    });
+    })->middleware('auth');
 
 Route::get('/tableaux',function () {
-    return view('tableaux.equipes',['equipes'=>Equipe::all()]);
+    return view('tableaux.equipes',['equipes'=>Equipe::all()])->middleware('auth');
 });
 
-Route::post('tableaux/store',[TableauController::class,'store']);
+Route::post('tableaux/store',[TableauController::class,'store'])->middleware('auth');
 
-Route::post('tableaux/update/{id}',[TableauController::class,'update']);
+Route::post('tableaux/update/{id}',[TableauController::class,'update'])->middleware('auth');
 
 Route::get('/tableau/{id}',function ($id) {
     $tableau = Tableau::find($id);
     $equipe = Equipe::find($tableau->equipe_id);
     $rows = TableauRow::where("tableau_id",$id)->get();
     return view('tableaux.tableau',['tableau'=>$tableau , 'rows' => $rows , 'equipe' => $equipe]);
-});
+})->middleware('auth');
 
-Route::get('/production',[ProductionController::class,'index']);
+Route::get('/production',[ProductionController::class,'index'])->middleware('auth');
 
-Route::get('/calcul',[CalculController::class,"get_agents"]);
-Route::get('/calcul/{id}',[CalculController::class,"get_agent_data"]);
-Route::post('/calcul/save',[CalculController::class,'save']);
+Route::get('/calcul',[CalculController::class,"get_agents"])->middleware('auth');
+Route::get('/calcul/{id}',[CalculController::class,"get_agent_data"])->middleware('auth');
+Route::post('/calcul/save',[CalculController::class,'save'])->middleware('auth');
 
-Route::get('/stat',[StatController::class,'get_chart_data']);
-Route::get('/stats/{id}',[StatController::class,'get_agent_stats']);
+Route::get('/stat',[StatController::class,'get_chart_data'])->middleware('auth');
+Route::get('/stats/{id}',[StatController::class,'get_agent_stats'])->middleware('auth');
 
-Route::get('/mail/create',[MailController::class,'create']);
-Route::post('/mail/send',[MailController::class,'send']);
+Route::get('/mail/create',[MailController::class,'create'])->middleware('auth');
+Route::post('/mail/send',[MailController::class,'send'])->middleware('auth');
 
 
